@@ -11,11 +11,11 @@ printf("\n#                     since agost,2023                                
 printf("\n#           -- Sistema de gestão de despesas --                           #"); 
 printf("\n#                                                                         #");
 printf("\n#           1. Aluno                                                      #"); 
-printf("\n#           2. Líder da república de estudantes                           #"); 
+printf("\n#           2. Sobre o programa                                           #"); 
 printf("\n#           3. Relatórios                                                 #");
 printf("\n#           4. Financias                                                  #");  
 printf("\n#           5. Sair                                                       #"); 
-printf("\nEscolha a opção desejada:");
+printf("\nresposta = Escolha a opção desejada:");             
 printf("\n#             Universidade Federal do Rio Grande do Norte                 #"); 
 printf("\n#                Centro de Ensino Superior do Seridó                      #"); 
 printf("\n#              Departamento de Computação e Tecnologia                    #"); 
