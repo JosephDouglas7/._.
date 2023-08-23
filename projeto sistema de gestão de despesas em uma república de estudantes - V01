@@ -1,5 +1,6 @@
 #include<stdio.h> 
-int main(){ 
+int main(){  
+int resposta;
 printf("\n#            Universidade Federal do Rio Grande do Norte                  #"); 
 printf("\n#                Centro de Ensino Superior do Seridó                      #"); 
 printf("\n#              Departamento de Computação e Tecnologia                    #"); 
@@ -15,7 +16,9 @@ printf("\n#           2. Sobre o programa                                       
 printf("\n#           3. Relatórios                                                 #");
 printf("\n#           4. Financias                                                  #");  
 printf("\n#           5. Sair                                                       #"); 
-printf("\nresposta = Escolha a opção desejada:");             
+printf("\n# Qual sua opção?:");   
+scanf("%i",&resposta); 
+if(resposta<=2){
 printf("\n#             Universidade Federal do Rio Grande do Norte                 #"); 
 printf("\n#                Centro de Ensino Superior do Seridó                      #"); 
 printf("\n#              Departamento de Computação e Tecnologia                    #"); 
@@ -48,4 +51,7 @@ printf("\n#             Redes sociais: @josephdouglas                           
 printf("\n#             Git:https://github.com/JosephDouglas7/README.md.git         #"); 
 printf("\n#                                                                         #"); 
 printf("\n###########################################################################"); 
+}else{ 
+    printf("Nenhuma opção encontrada");
+}
 }
