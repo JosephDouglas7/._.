@@ -56,24 +56,24 @@ printf("\n######################################################################
 } 
 if(resposta<=3){
 printf("\n#### relatórios #####"); 
-printf("\n1.Adicionar relatórios"); 
-printf("\n2.Relatórios salvos"); 
+printf("\n6.Adicionar relatórios"); 
+printf("\n7.Relatórios salvos"); 
 printf("Qual sua opção?:"); 
 scanf("%i",&resposta2); 
 }
-if(resposta<=1){ 
+if(resposta<=6){ 
     printf("#### Relatório ####"); 
-    printf("\n1.A república estudantil está em ordem"); 
-    printf("\n2.A república estudantil está precisando de reformas"); 
-    printf("\n3.A república estudantil está fora de ordem"); 
+    printf("\n8.A república estudantil está em ordem"); 
+    printf("\n9.A república estudantil está precisando de reformas"); 
+    printf("\n10.A república estudantil está fora de ordem"); 
     printf("Qual sua opção?:"); 
     scanf("%i",&resposta3); 
 }
-if(resposta<=1){ 
+if(resposta<=8){ 
    printf("A república estudantil está em ordem");
-}else if(resposta<=2){ 
+}else if(resposta<=9){ 
    printf("A república estudantil está precisando de reformas");
-}else if(resposta<=3){ 
+}else if(resposta<=10){ 
    printf("A república estudantil está fora de ordem");
 }
 }
