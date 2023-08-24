@@ -1,6 +1,6 @@
 #include<stdio.h> 
 int main(){  
-int resposta;
+int resposta,resposta2,resposta3;
 printf("\n#            Universidade Federal do Rio Grande do Norte                  #"); 
 printf("\n#                Centro de Ensino Superior do Seridó                      #"); 
 printf("\n#              Departamento de Computação e Tecnologia                    #"); 
@@ -53,5 +53,27 @@ printf("\n#                                                                     
 printf("\n###########################################################################"); 
 }else{ 
     printf("Nenhuma opção encontrada");
+} 
+if(resposta<=3){
+printf("\n#### relatórios #####"); 
+printf("\n1.Adicionar relatórios"); 
+printf("\n2.Relatórios salvos"); 
+printf("Qual sua opção?:"); 
+scanf("%i",&resposta2); 
+}
+if(resposta<=1){ 
+    printf("#### Relatório ####"); 
+    printf("\n1.A república estudantil está em ordem"); 
+    printf("\n2.A república estudantil está precisando de reformas"); 
+    printf("\n3.A república estudantil está fora de ordem"); 
+    printf("Qual sua opção?:"); 
+    scanf("%i",&resposta3); 
+}
+if(resposta<=1){ 
+   printf("A república estudantil está em ordem");
+}else if(resposta<=2){ 
+   printf("A república estudantil está precisando de reformas");
+}else if(resposta<=3){ 
+   printf("A república estudantil está fora de ordem");
 }
 }
