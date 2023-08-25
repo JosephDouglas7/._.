@@ -1,6 +1,6 @@
 #include<stdio.h> 
 int main(){  
-int resposta,resposta2,resposta3,resposta4;
+int resposta,resposta2,resposta3;
 printf("\n#            Universidade Federal do Rio Grande do Norte                  #"); 
 printf("\n#                Centro de Ensino Superior do Seridó                      #"); 
 printf("\n#              Departamento de Computação e Tecnologia                    #"); 
@@ -14,8 +14,6 @@ printf("\n#                                                                     
 printf("\n#           1. Aluno                                                      #"); 
 printf("\n#           2. Sobre o programa                                           #"); 
 printf("\n#           3. Relatórios                                                 #");
-printf("\n#           4. Orçamentos                                                 #");  
-printf("\n#           5. Sair                                                       #"); 
 printf("\n# Qual sua opção?:");   
 scanf("%i",&resposta); 
 if(resposta<=2){
@@ -70,26 +68,15 @@ if(resposta<=6){
     scanf("%i",&resposta3); 
 }
 if(resposta<=8){ 
-   printf("A república estudantil está em ordem");
+   printf("A república estudantil está em ordem"); 
+   printf("\n#   FIM   #");
 }else if(resposta<=9){ 
-   printf("A república estudantil está precisando de reformas");
+   printf("A república estudantil está precisando de reformas"); 
+   printf("\n#   FIM   #");
 }else if(resposta<=10){ 
-   printf("A república estudantil está fora de ordem");
+   printf("A república estudantil está fora de ordem"); 
+   printf("\n#   FIM   #");
 }else{ 
    printf("Nenhuma opção encontrada");
 } 
-if(resposta <= 4){
-printf("\n#     Orçamentos     #"); 
-printf("\n#  11.Orçamento      #"); 
-printf("\n#  12.Sair           #"); 
-printf("Qual sua opção?:"); 
-scanf("%i",&resposta4); 
-}
-if(resposta4 <= 11){ 
-  printf("Orçamento: R$ 7.000");
-}else if(resposta4 <= 12){ 
-  printf("Encerrado");
-}else{ 
-  printf("Nenhuma opção encontrada");
-}
 }
