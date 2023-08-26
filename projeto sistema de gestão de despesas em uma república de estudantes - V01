@@ -54,8 +54,7 @@ printf("\n######################################################################
 } 
 if(resposta<=3){
 printf("\n#### relatórios #####"); 
-printf("\n6.Adicionar relatórios"); 
-printf("\n7.Relatórios salvos"); 
+printf("\n6.Adicionar relatórios");  
 printf("Qual sua opção?:"); 
 scanf("%i",&resposta2); 
 }
