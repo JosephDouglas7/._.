@@ -53,7 +53,7 @@ printf("\n######################################################################
     printf("Nenhuma opção encontrada");
 } 
 if(resposta<=3){
-printf("\n#### relatórios #####"); 
+printf("\n#### relatórios e Avisos#####"); 
 printf("\n6.Adicionar relatórios"); 
 printf("\nAvisos da semana:"); 
 printf("\nFaxina as sextas"); 
