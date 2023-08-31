@@ -13,7 +13,7 @@ printf("\n#           -- Sistema de gestão de despesas --                      
 printf("\n#                                                                         #");
 printf("\n#           1. Aluno                                                      #"); 
 printf("\n#           2. Sobre o programa                                           #"); 
-printf("\n#           3. Relatórios                                                 #");
+printf("\n#           3. Relatórios e Avisos da semana                              #"); 
 printf("\n# Qual sua opção?:");   
 scanf("%i",&resposta); 
 if(resposta<=2){
@@ -54,12 +54,15 @@ printf("\n######################################################################
 } 
 if(resposta<=3){
 printf("\n#### relatórios #####"); 
-printf("\n6.Adicionar relatórios");  
+printf("\n6.Adicionar relatórios"); 
+printf("\nAvisos da semana:"); 
+printf("\nFaxina as sextas"); 
+printf("\nVarrer aos sábados");
 printf("Qual sua opção?:"); 
-scanf("%i",&resposta2); 
-}
+scanf("%i",&resposta2);  
+} 
 if(resposta<=6){ 
-    printf("#### Relatório ####"); 
+    printf("\n#### Relatório ####"); 
     printf("\n8.A república estudantil está em ordem"); 
     printf("\n9.A república estudantil está precisando de reformas"); 
     printf("\n10.A república estudantil está fora de ordem"); 
@@ -75,7 +78,5 @@ if(resposta<=8){
 }else if(resposta<=10){ 
    printf("A república estudantil está fora de ordem"); 
    printf("\n#   FIM   #");
-}else{ 
-   printf("Nenhuma opção encontrada");
-} 
+}
 }
