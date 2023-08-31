@@ -13,10 +13,11 @@ printf("\n#           -- Sistema de gestão de despesas --                      
 printf("\n#                                                                         #");
 printf("\n#           1. Aluno                                                      #"); 
 printf("\n#           2. Sobre o programa                                           #"); 
-printf("\n#           3. Relatórios e Avisos da semana                              #"); 
+printf("\n#           3. Relatórios                                                 #");  
+printf("\n#           4. Avisos da Semana                                           #"); 
 printf("\n# Qual sua opção?:");   
 scanf("%i",&resposta); 
-if(resposta<=2){
+if(resposta==2){
 printf("\n#             Universidade Federal do Rio Grande do Norte                 #"); 
 printf("\n#                Centro de Ensino Superior do Seridó                      #"); 
 printf("\n#              Departamento de Computação e Tecnologia                    #"); 
@@ -49,34 +50,34 @@ printf("\n#             Redes sociais: @josephdouglas                           
 printf("\n#             Git:https://github.com/JosephDouglas7/README.md.git         #"); 
 printf("\n#                                                                         #"); 
 printf("\n###########################################################################"); 
-}else{ 
-    printf("Nenhuma opção encontrada");
-} 
-if(resposta<=3){
-printf("\n#### relatórios e Avisos#####"); 
+}
+if(resposta==3){
+printf("\n#### relatórios #####"); 
 printf("\n6.Adicionar relatórios"); 
-printf("\nAvisos da semana:"); 
-printf("\nFaxina as sextas"); 
-printf("\nVarrer aos sábados");
-printf("Qual sua opção?:"); 
+printf("\nQual sua opção?:"); 
 scanf("%i",&resposta2);  
 } 
-if(resposta<=6){ 
+if(resposta2==6){ 
     printf("\n#### Relatório ####"); 
     printf("\n8.A república estudantil está em ordem"); 
     printf("\n9.A república estudantil está precisando de reformas"); 
     printf("\n10.A república estudantil está fora de ordem"); 
-    printf("Qual sua opção?:"); 
+    printf("\nQual sua opção?:"); 
     scanf("%i",&resposta3); 
 }
-if(resposta<=8){ 
+if(resposta3==8){ 
    printf("A república estudantil está em ordem"); 
    printf("\n#   FIM   #");
-}else if(resposta<=9){ 
+}else if(resposta3==9){ 
    printf("A república estudantil está precisando de reformas"); 
    printf("\n#   FIM   #");
-}else if(resposta<=10){ 
+}else if(resposta3==10){ 
    printf("A república estudantil está fora de ordem"); 
    printf("\n#   FIM   #");
+} 
+if(resposta==4){ 
+printf("\n### Avisos da Semana ###"); 
+printf("\nFaxina as sextas"); 
+printf("\nVarrer aos sábados");
 }
 }
