@@ -1,83 +1,105 @@
 #include<stdio.h> 
-int main(){  
-int resposta,resposta2,resposta3;
-printf("\n#            Universidade Federal do Rio Grande do Norte                  #"); 
-printf("\n#                Centro de Ensino Superior do Seridó                      #"); 
-printf("\n#              Departamento de Computação e Tecnologia                    #"); 
-printf("\n#                 Disciplina DCT1106 -- Programação                       #"); 
-printf("\n#                 Projeto Sistema de gestão de despesas                   #"); 
-printf("\n#                 em uma República de Estudantes                          #"); 
-printf("\n#             Developed by @josephdouglas                                 #"); 
-printf("\n#                     since agost,2023                                    #"); 
-printf("\n#           -- Sistema de gestão de despesas --                           #"); 
-printf("\n#                                                                         #");
-printf("\n#           1. Aluno                                                      #"); 
-printf("\n#           2. Sobre o programa                                           #"); 
-printf("\n#           3. Relatórios                                                 #");  
-printf("\n#           4. Avisos da Semana                                           #"); 
-printf("\n# Qual sua opção?:");   
-scanf("%i",&resposta); 
-if(resposta==2){
-printf("\n#             Universidade Federal do Rio Grande do Norte                 #"); 
-printf("\n#                Centro de Ensino Superior do Seridó                      #"); 
-printf("\n#              Departamento de Computação e Tecnologia                    #"); 
-printf("\n#                 Disciplina DCT1106 -- Programação                       #"); 
-printf("\n#                 Projeto Sistema de gestão de despesas                   #"); 
-printf("\n#                 em uma República de Estudantes                          #"); 
-printf("\n#             Developed by @josephdouglas                                 #"); 
-printf("\n#                     since agost,2023                                    #"); 
-printf("\n###########################################################################"); 
-printf("\n#                                                                         #"); 
-printf("\n#                -- Sistema de gestão de despesas --                      #"); 
-printf("\n#  Programa para fazer gestão de despesas em república de estudantes,para #"); 
-printf("\n#  fins de agilizamento do trabalho e melhoramento do atendimento para os #"); 
-printf("\n#  estudantes da Universidade.                                            #"); 
-printf("\n#            Universidade Federal do Rio Grande do Norte                  #"); 
-printf("\n#                Centro de Ensino Superior do Seridó                      #"); 
-printf("\n#              Departamento de Computação e Tecnologia                    #"); 
-printf("\n#                 Disciplina DCT1106 -- Programação                       #"); 
-printf("\n#                 Projeto Sistema de gestão de despesas                   #"); 
-printf("\n#                 em uma República de Estudantes                          #"); 
-printf("\n#             Developed by @josephdouglas                                 #"); 
-printf("\n#                     since agost,2023                                    #");
-printf("\n###########################################################################");  
-printf("\n#             -- Sistema de gestão de despesas --                         #"); 
-printf("\n#                                                                         #"); 
-printf("\n#             Este programa foi desenvolvido por:                         #"); 
-printf("\n#             Joseph Douglas Moura Batista                                #");  
-printf("\n#             E-mail:joseph.batista.066@ufrn.edu.br                       #"); 
-printf("\n#             Redes sociais: @josephdouglas                               #"); 
-printf("\n#             Git:https://github.com/JosephDouglas7/README.md.git         #"); 
-printf("\n#                                                                         #"); 
-printf("\n###########################################################################"); 
+#include<stdlib.h>
+void tela_menu_principal(void); 
+void tela_sobre(void); 
+void tela_equipe(void); 
+void tela_relatórios(void); 
+void tela_relatórios2(void);
+int main(void){  
+  tela_menu_principal(); 
+  tela_sobre(); 
+  tela_equipe(); 
+  tela_relatórios(); 
+  tela_relatórios2();
+  return 0; 
 }
-if(resposta==3){
-printf("\n#### relatórios #####"); 
-printf("\n6.Adicionar relatórios"); 
-printf("\nQual sua opção?:"); 
-scanf("%i",&resposta2);  
+void tela_menu_principal(void){ 
+ char op; 
+ system("clear||cls");
+ printf("\n#            Universidade Federal do Rio Grande do Norte                  #"); 
+ printf("\n#                Centro de Ensino Superior do Seridó                      #"); 
+ printf("\n#              Departamento de Computação e Tecnologia                    #"); 
+ printf("\n#                 Disciplina DCT1106 -- Programação                       #"); 
+ printf("\n#                 Projeto Sistema de gestão de despesas                   #"); 
+ printf("\n#                 em uma República de Estudantes                          #"); 
+ printf("\n#             Developed by @josephdouglas                                 #"); 
+ printf("\n#                     since agost,2023                                    #"); 
+ printf("\n#           -- Sistema de gestão de despesas --                           #"); 
+ printf("\n#                                                                         #");
+ printf("\n#           1. Aluno                                                      #"); 
+ printf("\n#           2. Sobre o programa                                           #"); 
+ printf("\n#           3. Relatórios                                                 #");  
+ printf("\n#           4. Avisos da Semana                                           #"); 
+ printf("\n# Qual sua opção?:");   
+ scanf("%c", &op); 
+ getchar();
+}
+void tela_sobre(void) {
+ system("clear||cls");
+ printf("\n#             Universidade Federal do Rio Grande do Norte                 #"); 
+ printf("\n#                Centro de Ensino Superior do Seridó                      #"); 
+ printf("\n#              Departamento de Computação e Tecnologia                    #"); 
+ printf("\n#                 Disciplina DCT1106 -- Programação                       #"); 
+ printf("\n#                 Projeto Sistema de gestão de despesas                   #"); 
+ printf("\n#                 em uma República de Estudantes                          #"); 
+ printf("\n#             Developed by @josephdouglas                                 #"); 
+ printf("\n#                     since agost,2023                                    #"); 
+ printf("\n###########################################################################"); 
+ printf("\n#                                                                         #"); 
+ printf("\n#                -- Sistema de gestão de despesas --                      #"); 
+ printf("\n#  Programa para fazer gestão de despesas em república de estudantes,para #"); 
+ printf("\n#  fins de agilizamento do trabalho e melhoramento do atendimento para os #"); 
+ printf("\n#  estudantes da Universidade.                                            #"); 
+ printf("\n#            Universidade Federal do Rio Grande do Norte                  #"); 
+ printf("\n#                Centro de Ensino Superior do Seridó                      #"); 
+ printf("\n#              Departamento de Computação e Tecnologia                    #"); 
+ printf("\n#                 Disciplina DCT1106 -- Programação                       #"); 
+ printf("\n#                 Projeto Sistema de gestão de despesas                   #"); 
+ printf("\n#                 em uma República de Estudantes                          #"); 
+ printf("\n#             Developed by @josephdouglas                                 #"); 
+ printf("\n#                     since agost,2023                                    #");  
+ getchar();
 } 
-if(resposta2==6){ 
+void tela_equipe(void) {
+ system("clear||cls");
+ printf("\n###########################################################################");  
+ printf("\n#             -- Sistema de gestão de despesas --                         #"); 
+ printf("\n#                                                                         #"); 
+ printf("\n#             Este programa foi desenvolvido por:                         #"); 
+ printf("\n#             Joseph Douglas Moura Batista                                #");  
+ printf("\n#             E-mail:joseph.batista.066@ufrn.edu.br                       #"); 
+ printf("\n#             Redes sociais: @josephdouglas                               #"); 
+ printf("\n#             Git:https://github.com/JosephDouglas7/README.md.git         #"); 
+ printf("\n#                                                                         #"); 
+ printf("\n###########################################################################");  
+}
+void tela_relatórios(void){ 
+ char op;
+ system("clear||cls");
+ printf("\n#### relatórios #####"); 
+ printf("\n6.Adicionar relatórios");  
+ printf("\n7.Voltar ao menu anterior");
+ printf("\nQual sua opção?:");  
+ scanf("%c", &op); 
+ getchar(); 
+} 
+void tela_relatórios2(void){
     printf("\n#### Relatório ####"); 
-    printf("\n8.A república estudantil está em ordem"); 
-    printf("\n9.A república estudantil está precisando de reformas"); 
+   printf("\n8.A república estudantil está em ordem"); 
+   printf("\n9.A república estudantil está precisando de reformas"); 
     printf("\n10.A república estudantil está fora de ordem"); 
     printf("\nQual sua opção?:"); 
-    scanf("%i",&resposta3); 
 }
-if(resposta3==8){ 
-   printf("A república estudantil está em ordem"); 
-   printf("\n#   FIM   #");
-}else if(resposta3==9){ 
-   printf("A república estudantil está precisando de reformas"); 
-   printf("\n#   FIM   #");
-}else if(resposta3==10){ 
-   printf("A república estudantil está fora de ordem"); 
-   printf("\n#   FIM   #");
-} 
-if(resposta==4){ 
-printf("\n### Avisos da Semana ###"); 
-printf("\nFaxina as sextas"); 
-printf("\nVarrer aos sábados");
-}
-}
+   //printf("A república estudantil está em ordem"); 
+   //printf("\n#   FIM   #");
+
+   //printf("A república estudantil está precisando de reformas"); 
+   //printf("\n#   FIM   #");
+
+   //printf("A república estudantil está fora de ordem"); 
+   //printf("\n#   FIM   #");
+
+//printf("\n### Avisos da Semana ###"); 
+//printf("\nFaxina as sextas"); 
+//printf("\nVarrer aos sábados");
+
