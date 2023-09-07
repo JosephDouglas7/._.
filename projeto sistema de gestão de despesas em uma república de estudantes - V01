@@ -1,38 +1,75 @@
 #include<stdio.h> 
 #include<stdlib.h>
 void tela_menu_principal(void); 
+void aluno(void); 
+void cadastrar_aluno(void);  
+void alunos_cadastrados(void);
 void tela_sobre(void); 
 void tela_equipe(void); 
 void tela_relatórios(void); 
-void tela_relatórios2(void);
-int main(void){  
+void tela_relatórios2(void); 
+void avisos_da_semana(void); 
+int main(void){ 
+  aluno(); 
+  cadastrar_aluno(); 
+  alunos_cadastrados();
   tela_menu_principal(); 
   tela_sobre(); 
   tela_equipe(); 
   tela_relatórios(); 
-  tela_relatórios2();
+  tela_relatórios2(); 
+  avisos_da_semana(); 
   return 0; 
 }
 void tela_menu_principal(void){ 
  char op; 
  system("clear||cls");
- printf("\n#            Universidade Federal do Rio Grande do Norte                  #"); 
- printf("\n#                Centro de Ensino Superior do Seridó                      #"); 
- printf("\n#              Departamento de Computação e Tecnologia                    #"); 
- printf("\n#                 Disciplina DCT1106 -- Programação                       #"); 
- printf("\n#                 Projeto Sistema de gestão de despesas                   #"); 
- printf("\n#                 em uma República de Estudantes                          #"); 
- printf("\n#             Developed by @josephdouglas                                 #"); 
- printf("\n#                     since agost,2023                                    #"); 
- printf("\n#           -- Sistema de gestão de despesas --                           #"); 
- printf("\n#                                                                         #");
- printf("\n#           1. Aluno                                                      #"); 
- printf("\n#           2. Sobre o programa                                           #"); 
- printf("\n#           3. Relatórios                                                 #");  
- printf("\n#           4. Avisos da Semana                                           #"); 
+ printf("\n# Universidade Federal do Rio Grande do Norte #"); 
+ printf("\n#   Centro de Ensino Superior do Seridó     #"); 
+ printf("\n#   Departamento de Computação e Tecnologia #"); 
+ printf("\n#       Disciplina DCT1106 -- Programação   #"); 
+ printf("\n#    Projeto Sistema de gestão de despesas  #"); 
+ printf("\n#           em uma República de Estudantes  #"); 
+ printf("\n#             Developed by @josephdouglas   #"); 
+ printf("\n#             since agost,2023              #"); 
+ printf("\n#    -- Sistema de gestão de despesas --    #"); 
+ printf("\n#                                           #");
+ printf("\n#           1. Aluno                        #"); 
+ printf("\n#           2. Sobre o programa             #"); 
+ printf("\n#           3. Relatórios                   #"); 
+ printf("\n#           4. Avisos da Semana             #"); 
+ printf("\n#           5. Financias                    #");
  printf("\n# Qual sua opção?:");   
  scanf("%c", &op); 
  getchar();
+} 
+void aluno(void){ 
+char op; 
+system("clear||cls");
+printf("\n#   --  Área do aluno --     #"); 
+printf("\n# 1.Cadastrar aluno          #"); 
+printf("\n# 2.Alunos cadastrados       #"); 
+printf("\n# 3.Voltar ao menu principal #"); 
+printf("\n# Qual sua opção?:           #"); 
+scanf("%c", &op); 
+getchar();
+}  
+void cadastrar_aluno(void){  
+char op; 
+system("clear||cls");
+printf("\n# -- Cadastro de alunos --   #");
+printf("\n# Nome do aluno:             #"); 
+printf("\n# Idade:                     #"); 
+printf("\n# CPF:                       #"); 
+printf("\n# Número:                    #"); 
+printf("\n# Número de matricula:       #");
+} 
+void alunos_cadastrados(void){  
+char op; 
+system("clear||cls");
+printf("\n## Alunos Cadastrados ##"); 
+printf("\n# Zé roela             #"); 
+printf("\n# Chavez               #");
 }
 void tela_sobre(void) {
  system("clear||cls");
@@ -70,7 +107,7 @@ void tela_equipe(void) {
  printf("\n#             E-mail:joseph.batista.066@ufrn.edu.br                       #"); 
  printf("\n#             Redes sociais: @josephdouglas                               #"); 
  printf("\n#             Git:https://github.com/JosephDouglas7/README.md.git         #"); 
- printf("\n#                                                                         #"); 
+ printf("\n#                                                                         #");    
  printf("\n###########################################################################");  
 }
 void tela_relatórios(void){ 
@@ -87,7 +124,8 @@ void tela_relatórios2(void){
     printf("\n#### Relatório ####"); 
    printf("\n8.A república estudantil está em ordem"); 
    printf("\n9.A república estudantil está precisando de reformas"); 
-    printf("\n10.A república estudantil está fora de ordem"); 
+    printf("\n10.A república estudantil está fora de ordem");  
+    printf("\n0.Voltar ao menu principal");
     printf("\nQual sua opção?:"); 
 }
    //printf("A república estudantil está em ordem"); 
@@ -98,8 +136,9 @@ void tela_relatórios2(void){
 
    //printf("A república estudantil está fora de ordem"); 
    //printf("\n#   FIM   #");
-
-//printf("\n### Avisos da Semana ###"); 
-//printf("\nFaxina as sextas"); 
-//printf("\nVarrer aos sábados");
+void avisos_da_semana(void){ 
+printf("\n### Avisos da Semana ###"); 
+printf("\nFaxina as sextas"); 
+printf("\nVarrer aos sábados"); 
+}
 
