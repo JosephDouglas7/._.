@@ -8,7 +8,11 @@ void tela_sobre(void);
 void tela_equipe(void); 
 void tela_relatórios(void); 
 void tela_relatórios2(void); 
-void avisos_da_semana(void); 
+void avisos_da_semana(void);  
+void financias(void); 
+void orçamento_atual (void); 
+void Adicionar_financiamento(void); 
+void Financiamentos_atuais(void);
 int main(void){ 
   aluno(); 
   cadastrar_aluno(); 
@@ -18,7 +22,11 @@ int main(void){
   tela_equipe(); 
   tela_relatórios(); 
   tela_relatórios2(); 
-  avisos_da_semana(); 
+  avisos_da_semana();  
+  financias(); 
+  orçamento_atual(); 
+  Adicionar_financiamento(); 
+  Financiamentos_atuais();
   return 0; 
 }
 void tela_menu_principal(void){ 
@@ -120,7 +128,9 @@ void tela_relatórios(void){
  scanf("%c", &op); 
  getchar(); 
 } 
-void tela_relatórios2(void){
+void tela_relatórios2(void){ 
+  char op; 
+  system("clear||cls");
     printf("\n#### Relatório ####"); 
    printf("\n8.A república estudantil está em ordem"); 
    printf("\n9.A república estudantil está precisando de reformas"); 
@@ -136,9 +146,49 @@ void tela_relatórios2(void){
 
    //printf("A república estudantil está fora de ordem"); 
    //printf("\n#   FIM   #");
-void avisos_da_semana(void){ 
+void avisos_da_semana(void){  
+char op; 
+system("clear||cls");
 printf("\n### Avisos da Semana ###"); 
 printf("\nFaxina as sextas"); 
 printf("\nVarrer aos sábados"); 
+}
+void financias(void){ 
+ char op; 
+ system("clear||cls");
+ printf("\n# Universidade Federal do Rio Grande do Norte #"); 
+ printf("\n#   Centro de Ensino Superior do Seridó     #"); 
+ printf("\n#   Departamento de Computação e Tecnologia #"); 
+ printf("\n#       Disciplina DCT1106 -- Programação   #"); 
+ printf("\n#    Projeto Sistema de gestão de despesas  #"); 
+ printf("\n#           em uma República de Estudantes  #"); 
+ printf("\n#             Developed by @josephdouglas   #"); 
+ printf("\n#             since agost,2023              #"); 
+ printf("\n#      ----     Financias        ----       #"); 
+ printf("\n#                                           #");
+ printf("\n#           1. Orçamento atual              #"); 
+ printf("\n#           2. Adicionar financiamento      #"); 
+ printf("\n#           3. Financiamentos atuais        #"); 
+ printf("\n#           4. Voltar ao menu principal     #"); 
+ printf("\n#                                           #"); 
+ printf("\n Qual sua opção?:"); 
+} 
+void orçamento_atual (void){  
+char op; 
+system("clear||cls");
+printf("\nOrçamento atual: R$ 7000");
+} 
+void Adicionar_financiamento(void){  
+char op; 
+system("clear||cls");
+printf("\n ---- Financiamento ----"); 
+printf("\nDigite um valor do financiamento:");
+}
+void Financiamentos_atuais(void){ 
+char op; 
+system("clear||cls");
+printf("\n ---- Financiamentos atuais ----"); 
+printf("\n06/09 - Financiamento de R$ 1000"); 
+printf("\n07/09 - Financiamento de R$ 500 ");
 }
 
