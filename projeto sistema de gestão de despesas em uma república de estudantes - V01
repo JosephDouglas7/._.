@@ -70,14 +70,16 @@ printf("\n# Nome do aluno:             #");
 printf("\n# Idade:                     #"); 
 printf("\n# CPF:                       #"); 
 printf("\n# Número:                    #"); 
-printf("\n# Número de matricula:       #");
+printf("\n# Número de matricula:       #");  
+getchar();
 } 
 void alunos_cadastrados(void){  
 char op; 
 system("clear||cls");
 printf("\n## Alunos Cadastrados ##"); 
 printf("\n# Zé roela             #"); 
-printf("\n# Chavez               #");
+printf("\n# Chavez               #");  
+getchar();
 }
 void tela_sobre(void) {
  system("clear||cls");
@@ -137,6 +139,8 @@ void tela_relatórios2(void){
     printf("\n10.A república estudantil está fora de ordem");  
     printf("\n0.Voltar ao menu principal");
     printf("\nQual sua opção?:"); 
+    scanf("%c", &op); 
+    getchar(); 
 }
    //printf("A república estudantil está em ordem"); 
    //printf("\n#   FIM   #");
@@ -151,7 +155,8 @@ char op;
 system("clear||cls");
 printf("\n### Avisos da Semana ###"); 
 printf("\nFaxina as sextas"); 
-printf("\nVarrer aos sábados"); 
+printf("\nVarrer aos sábados");  
+getchar();
 }
 void financias(void){ 
  char op; 
@@ -171,24 +176,29 @@ void financias(void){
  printf("\n#           3. Financiamentos atuais        #"); 
  printf("\n#           4. Voltar ao menu principal     #"); 
  printf("\n#                                           #"); 
- printf("\n Qual sua opção?:"); 
+ printf("\n Qual sua opção?:");  
+ scanf("%c", &op); 
+ getchar();
 } 
 void orçamento_atual (void){  
 char op; 
 system("clear||cls");
-printf("\nOrçamento atual: R$ 7000");
+printf("\nOrçamento atual: R$ 7000");  
+getchar();
 } 
 void Adicionar_financiamento(void){  
 char op; 
 system("clear||cls");
 printf("\n ---- Financiamento ----"); 
-printf("\nDigite um valor do financiamento:");
+printf("\nDigite um valor do financiamento:"); 
+getchar();
 }
 void Financiamentos_atuais(void){ 
 char op; 
 system("clear||cls");
 printf("\n ---- Financiamentos atuais ----"); 
 printf("\n06/09 - Financiamento de R$ 1000"); 
-printf("\n07/09 - Financiamento de R$ 500 ");
+printf("\n07/09 - Financiamento de R$ 500 "); 
+getchar();
 }
 
