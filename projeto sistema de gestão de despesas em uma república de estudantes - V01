@@ -8,20 +8,22 @@ void tela_sobre(void);
 void tela_equipe(void); 
 void tela_relatórios(void); 
 void tela_relatórios2(void); 
+void respostas_relatórios2(void);
 void avisos_da_semana(void);  
 void financias(void); 
 void orçamento_atual (void); 
 void Adicionar_financiamento(void); 
 void Financiamentos_atuais(void);
 int main(void){ 
+  tela_menu_principal(); 
   aluno(); 
   cadastrar_aluno(); 
   alunos_cadastrados();
-  tela_menu_principal(); 
   tela_sobre(); 
   tela_equipe(); 
   tela_relatórios(); 
   tela_relatórios2(); 
+  respostas_relatórios2();
   avisos_da_semana();  
   financias(); 
   orçamento_atual(); 
@@ -33,20 +35,20 @@ void tela_menu_principal(void){
  char op; 
  system("clear||cls");
  printf("\n# Universidade Federal do Rio Grande do Norte #"); 
- printf("\n#   Centro de Ensino Superior do Seridó     #"); 
- printf("\n#   Departamento de Computação e Tecnologia #"); 
- printf("\n#       Disciplina DCT1106 -- Programação   #"); 
- printf("\n#    Projeto Sistema de gestão de despesas  #"); 
- printf("\n#           em uma República de Estudantes  #"); 
- printf("\n#             Developed by @josephdouglas   #"); 
- printf("\n#             since agost,2023              #"); 
- printf("\n#    -- Sistema de gestão de despesas --    #"); 
- printf("\n#                                           #");
- printf("\n#           1. Aluno                        #"); 
- printf("\n#           2. Sobre o programa             #"); 
- printf("\n#           3. Relatórios                   #"); 
- printf("\n#           4. Avisos da Semana             #"); 
- printf("\n#           5. Financias                    #");
+ printf("\n#   Centro de Ensino Superior do Seridó       #"); 
+ printf("\n#   Departamento de Computação e Tecnologia   #"); 
+ printf("\n#       Disciplina DCT1106 -- Programação     #"); 
+ printf("\n#    Projeto Sistema de gestão de despesas    #"); 
+ printf("\n#           em uma República de Estudantes    #"); 
+ printf("\n#             Developed by @josephdouglas     #"); 
+ printf("\n#             since agost,2023                #"); 
+ printf("\n#    -- Sistema de gestão de despesas --      #"); 
+ printf("\n#                                             #");
+ printf("\n#           1. Aluno                          #"); 
+ printf("\n#           2. Sobre o programa               #"); 
+ printf("\n#           3. Relatórios                     #"); 
+ printf("\n#           4. Avisos da Semana               #"); 
+ printf("\n#           5. Financias                      #");
  printf("\n# Qual sua opção?:");   
  scanf("%c", &op); 
  getchar();
@@ -142,14 +144,14 @@ void tela_relatórios2(void){
     scanf("%c", &op); 
     getchar(); 
 }
-   //printf("A república estudantil está em ordem"); 
-   //printf("\n#   FIM   #");
-
-   //printf("A república estudantil está precisando de reformas"); 
-   //printf("\n#   FIM   #");
-
-   //printf("A república estudantil está fora de ordem"); 
-   //printf("\n#   FIM   #");
+void respostas_relatórios2(void){  
+system("clear||cls");
+printf("\nA república estudantil está em ordem"); 
+printf("\nA república estudantil está precisando de reformas"); 
+printf("\nA república estudantil está fora de ordem"); 
+printf("\n#   FIM   #"); 
+getchar();
+}
 void avisos_da_semana(void){  
 char op; 
 system("clear||cls");
@@ -162,20 +164,20 @@ void financias(void){
  char op; 
  system("clear||cls");
  printf("\n# Universidade Federal do Rio Grande do Norte #"); 
- printf("\n#   Centro de Ensino Superior do Seridó     #"); 
- printf("\n#   Departamento de Computação e Tecnologia #"); 
- printf("\n#       Disciplina DCT1106 -- Programação   #"); 
- printf("\n#    Projeto Sistema de gestão de despesas  #"); 
- printf("\n#           em uma República de Estudantes  #"); 
- printf("\n#             Developed by @josephdouglas   #"); 
- printf("\n#             since agost,2023              #"); 
- printf("\n#      ----     Financias        ----       #"); 
- printf("\n#                                           #");
- printf("\n#           1. Orçamento atual              #"); 
- printf("\n#           2. Adicionar financiamento      #"); 
- printf("\n#           3. Financiamentos atuais        #"); 
- printf("\n#           4. Voltar ao menu principal     #"); 
- printf("\n#                                           #"); 
+ printf("\n#   Centro de Ensino Superior do Seridó       #"); 
+ printf("\n#   Departamento de Computação e Tecnologia   #"); 
+ printf("\n#       Disciplina DCT1106 -- Programação     #"); 
+ printf("\n#    Projeto Sistema de gestão de despesas    #"); 
+ printf("\n#           em uma República de Estudantes    #"); 
+ printf("\n#             Developed by @josephdouglas     #"); 
+ printf("\n#             since agost,2023                #"); 
+ printf("\n#      ----     Financias        ----         #"); 
+ printf("\n#                                             #");
+ printf("\n#           1. Orçamento atual                #"); 
+ printf("\n#           2. Adicionar financiamento        #"); 
+ printf("\n#           3. Financiamentos atuais          #"); 
+ printf("\n#           4. Voltar ao menu principal       #"); 
+ printf("\n#                                             #"); 
  printf("\n Qual sua opção?:");  
  scanf("%c", &op); 
  getchar();
@@ -201,4 +203,3 @@ printf("\n06/09 - Financiamento de R$ 1000");
 printf("\n07/09 - Financiamento de R$ 500 "); 
 getchar();
 }
-
