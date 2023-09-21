@@ -32,7 +32,7 @@ int main(void){
   return 0; 
 }
 void tela_menu_principal(void){ 
- char op1; 
+ char op; 
  system("clear||cls");
  printf("\n# Universidade Federal do Rio Grande do Norte #"); 
  printf("\n#   Centro de Ensino Superior do Seridó     #"); 
@@ -50,7 +50,8 @@ void tela_menu_principal(void){
  printf("\n#           4. Avisos da Semana             #"); 
  printf("\n#           5. Financias                    #");
  printf("\n Qual sua opção?:");   
- scanf("%c", &op1); 
+ scanf("%c", &op);  
+ return op;
  getchar();
 } 
 void aluno(void){ 
@@ -61,7 +62,8 @@ printf("\n# 1.Cadastrar aluno          #");
 printf("\n# 2.Alunos cadastrados       #"); 
 printf("\n# 3.Voltar ao menu principal #"); 
 printf("\nQual sua opção?:              "); 
-scanf("%c", &op); 
+scanf("%c", &op);  
+return op;
 getchar();
 }
 void cadastrar_aluno(void){  
@@ -73,6 +75,7 @@ printf("\nIdade:                        ");
 printf("\nCPF:                          "); 
 printf("\nNúmero:                       ");  
 printf("\nNúmero de matricula:          ");  
+return op;
 getchar();  
 }
 void alunos_cadastrados(void){  
@@ -80,7 +83,8 @@ char op;
 system("clear||cls");
 printf("\n## Alunos Cadastrados ##"); 
 printf("\n Zé roela             #"); 
-printf("\n Chavez               #");  
+printf("\n Chavez               #"); 
+return op;
 getchar();
 }
 void tela_sobre(void) {
@@ -105,6 +109,7 @@ void tela_sobre(void) {
  printf("\n#em uma República de Estudantes              #"); 
  printf("\n#Developed by @josephdouglas                 #"); 
  printf("\n#since agost,2023                            #"); 
+ return op;
  getchar();
 } 
 void tela_equipe(void) {
@@ -118,7 +123,8 @@ void tela_equipe(void) {
  printf("\n#Redes sociais: @josephdouglas            #"); 
  printf("\n#Git:https://github.com/JosephDouglas7/README.md.git  #"); 
 printf("\n#                                          #");    
-printf("\n############################################");  
+printf("\n############################################"); 
+return op;
 }
 void tela_relatórios(void){ 
  char op;
@@ -127,7 +133,8 @@ void tela_relatórios(void){
  printf("\n6.Adicionar relatórios");  
  printf("\n7.Voltar ao menu anterior");
  printf("\nQual sua opção?:");  
- scanf("%c", &op); 
+ scanf("%c", &op);  
+ return op;
  getchar(); 
 } 
 void tela_relatórios2(void){ 
@@ -139,7 +146,8 @@ void tela_relatórios2(void){
     printf("\n10.A república estudantil está fora de ordem");  
     printf("\n0.Voltar ao menu principal");
     printf("\nQual sua opção?:"); 
-    scanf("%c", &op); 
+    scanf("%c", &op);  
+    return op;
     getchar(); 
 }
 void respostas_relatórios2(void){  
@@ -147,7 +155,8 @@ system("clear||cls");
 printf("\nA república estudantil está em ordem"); 
 printf("\nA república estudantil está precisando de reformas"); 
 printf("\nA república estudantil está fora de ordem"); 
-printf("\n#   FIM   #"); 
+printf("\n#   FIM   #");  
+return op;
 getchar();
 }
 void avisos_da_semana(void){  
@@ -155,7 +164,8 @@ char op;
 system("clear||cls");
 printf("\n### Avisos da Semana ###"); 
 printf("\nFaxina as sextas"); 
-printf("\nVarrer aos sábados");  
+printf("\nVarrer aos sábados");   
+return op;
 getchar();
 }
 void financias(void){ 
@@ -177,7 +187,8 @@ void financias(void){
  printf("\n#           4. Voltar ao menu principal     #"); 
  printf("\n#                                           #"); 
  printf("\n Qual sua opção?:");  
- scanf("%c", &op); 
+ scanf("%c", &op);  
+ return op;
  getchar();
 } 
 void orçamento_atual (void){  
