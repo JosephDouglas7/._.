@@ -1,7 +1,6 @@
-void Adicionar_financiamento(void){  
-char op; 
-system("clear||cls");
-printf("\n ---- Financiamento ----"); 
-printf("\nDigite um valor do financiamento:"); 
-getchar();
-}
+
+//int valida_nome(char*);
+//int eh_letra(char);
+
+//int eh_bissexto(int);
+//int valida_data(int, int, int);
