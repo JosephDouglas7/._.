@@ -1,7 +1,7 @@
 //Feito com a ajuda do ChatGPT
 #include <stdio.h>
 
-int main() {
+int data() {
     int dia, mes, ano;
     printf("Digite sua data de nascimento (dd/mm/aaaa): ");
     scanf("%d/%d/%d", &dia, &mes, &ano);
@@ -37,4 +37,3 @@ int main() {
     printf("Data válida!\n");
     return 0;
 }
-
