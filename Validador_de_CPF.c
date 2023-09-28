@@ -1,38 +1,58 @@
 //Feito com a ajuda do ChatGPT
 #include <stdio.h>
+#include <string.h>
 
-int valida_cpf(char *cpf) {
-    int i, j, digito1 = 0, digito2 = 0;
+int validaCPF(char *cpf) {
+    int i, j, digito10 = 0, digito11 = 0;
 
     if(strlen(cpf) != 11)
         return 0;
-    else if((strcmp(cpf,"00000000000") == 0) || (strcmp(cpf,"11111111111") == 0) || (strcmp(cpf,"22222222222") == 0) ||
-            (strcmp(cpf,"33333333333") == 0) || (strcmp(cpf,"44444444444") == 0) || (strcmp(cpf,"55555555555") == 0) ||
-            (strcmp(cpf,"66666666666") == 0) || (strcmp(cpf,"77777777777") == 0) || (strcmp(cpf,"88888888888") == 0) ||
-            (strcmp(cpf,"99999999999") == 0))
-        return 0; /// cpf inválido
-    else { /// calcula o digito verificador do cpf
-        for(i = 0, j = 10; i < strlen(cpf)-2; i++, j--)
-            digito1 += (cpf[i]-48) * j;
-        digito1 %= 11;
-        if(digito1 < 2)
-            digito1 = 0;
-        else
-            digito1 = 11 - digito1;
 
-        if((cpf[9]-48) != digito1)
-            return 0; /// cpf inválido
-
-        for(i = 0, j = 11; i < strlen(cpf)-1; i++, j--)
-            digito2 += (cpf[i]-48) * j;
-        digito2 %= 11;
-        if(digito2 < 2)
-            digito2 = 0;
-        else
-            digito2 = 11 - digito2;
-
-        if((cpf[10]-48) != digito2)
-            return 0; /// cpf inválido
+    // Verifica se todos os dígitos são iguais
+    int todosIguais = 1;
+    for(i = 1; i < strlen(cpf); i++) {
+        if(cpf[i] != cpf[0]) {
+            todosIguais = 0;
+            break;
+        }
     }
+    if(todosIguais)
+        return 0;
+
+    for(i = 0, j = 10; i < strlen(cpf)-2; i++, j--)
+        digito10 += (cpf[i]-48) * j;
+    digito10 %= 11;
+    if(digito10 < 2)
+        digito10 = 0;
+    else
+        digito10 = 11 - digito10;
+
+    if((cpf[9]-48) != digito10)
+        return 0;
+
+    for(i = 0, j = 11; i < strlen(cpf)-1; i++, j--)
+        digito11 += (cpf[i]-48) * j;
+    digito11 %= 11;
+    if(digito11 < 2)
+        digito11 = 0;
+    else
+        digito11 = 11 - digito11;
+
+    if((cpf[10]-48) != digito11)
+        return 0;
+
     return 1;
+}
+
+int cpf() {
+    char cpf[12];
+    printf("Digite o CPF: ");
+    scanf("%s", cpf);
+
+    if(validaCPF(cpf))
+        printf("CPF válido.\n");
+    else
+        printf("CPF inválido.\n");
+
+    return 0;
 }
