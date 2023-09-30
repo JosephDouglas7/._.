@@ -12,9 +12,9 @@ void tela_relatorios2(void);
 void respostas_relatorios2(void);
 void avisos_da_semana(void);  
 void despesas(void); 
-void orcamento_atual (void); 
-void Adicionar_financiamento(void); 
-void Financiamentos_atuais(void); 
+void saldo_atual(void); 
+void Adicionar_pagamento(void); 
+void pagamentos_atuais(void);  
 int main(void){ 
 
  tela_menu_principal(); 
@@ -28,10 +28,10 @@ int main(void){
  respostas_relatorios2();
  avisos_da_semana();  
  despesas(); 
- orcamento_atual (); 
- Adicionar_financiamento(); 
- Financiamentos_atuais(); 
-
+ saldo_atual (); 
+ Adicionar_pagamento(); 
+ pagamentos_atuais(); 
+ return; 
 }
 void tela_menu_principal(void){  
  char op; 
@@ -53,8 +53,6 @@ void tela_menu_principal(void){
  printf("\n#           5. Despesas                     #");
  printf("\n Qual sua opção?:");   
  scanf("%c", &op);  
- return op;
- getchar();
 } 
 void aluno(void){ 
 char op; 
@@ -65,11 +63,10 @@ printf("\n# 2.Alunos cadastrados       #");
 printf("\n# 3.Voltar ao menu principal #"); 
 printf("\nQual sua opção?:              "); 
 scanf("%c", &op);  
-return op;
+return;
 getchar();
-}
-void cadastrar_aluno(void){  
-char op; 
+} 
+void cadastrar_aluno(void){   
 system("clear||cls");
 printf("\n# -- Cadastro de alunos --   #");
 printf("\nNome do aluno:                "); 
@@ -122,15 +119,15 @@ void tela_equipe(void) {
  printf("\n#                                          #");    
  printf("\n############################################"); 
 }
-void tela_relatorios(void){ 
- char op;
+void tela_relatorios(void){  
+ char op; 
  system("clear||cls");
  printf("\n#### relatórios #####"); 
  printf("\n6.Adicionar relatórios");  
  printf("\n7.Voltar ao menu anterior");
  printf("\nQual sua opção?:");  
  scanf("%c", &op);  
- return op;
+ return;
  getchar(); 
 } 
 void tela_relatorios2(void){ 
@@ -185,20 +182,20 @@ void despesas(void){
  return op;
  getchar();
 } 
-void orcamento_atual (void){  
+void saldo_atual (void){  
 char op; 
 system("clear||cls");
-printf("\nOrçamento atual: R$ 7000");  
+printf("\nSaldo atual: R$ 7000");  
 getchar();
 } 
-void Adicionar_financiamento(void){  
+void Adicionar_pagamento(void){  
 char op; 
 system("clear||cls");
-printf("\n ---- Financiamento ----"); 
-printf("\nDigite um valor do financiamento:"); 
+printf("\n ---- pagamento ----"); 
+printf("\nDigite um valor:"); 
 getchar();
 }
-void Financiamentos_atuais(void){ 
+void pagamentos_atuais(void){ 
 char op; 
 system("clear||cls");
 printf("\n ---- Contas pagas ----"); 
