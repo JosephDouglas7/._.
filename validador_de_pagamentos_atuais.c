@@ -1,3 +1,4 @@
+//Feito com a ajuda do ChatGPT
 #include <stdio.h>
 
 int atuais() {
