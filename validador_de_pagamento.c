@@ -8,7 +8,7 @@ int validar_pagamento(float valor) {
     }
 }
 
-int main() {
+int pagamento() {
     float valor;
     printf("Digite o valor do pagamento: ");
     scanf("%f", &valor);
