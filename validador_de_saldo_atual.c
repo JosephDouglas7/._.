@@ -1,3 +1,4 @@
+//feito com a ajuda do ChatGPT
 #include <stdio.h>
 
 int saldo() {
