@@ -1,3 +1,4 @@
+//Esse codigo pode ser aproveitado para linguagem python, linguagem C++
 //Feito com a ajuda do ChatGPT
 #include <stdio.h>
 
