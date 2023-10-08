@@ -1,3 +1,4 @@
+//Esse codigo pode ser aproveitado para linguagem python, linguagem C++
 //feito com a ajuda do ChatGPT
 #include <stdio.h>
 #include <string.h>
@@ -35,4 +36,3 @@ int alunos() {
 
     return 0;
 }
-
