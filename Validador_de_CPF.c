@@ -1,3 +1,4 @@
+//Esse codigo pode ser aproveitado para linguagem python, linguagem C++
 //Feito com a ajuda do ChatGPT
 #include <stdio.h>
 #include <string.h>
@@ -44,7 +45,7 @@ int validaCPF(char *cpf) {
     return 1;
 }
 
-int cpf() {
+int main() {
     char cpf[12];
     printf("Digite o CPF: ");
     scanf("%s", cpf);
