@@ -1,23 +1,34 @@
 #include<stdio.h> 
 #include<stdlib.h> 
 #include "util.h" 
-void tela_menu_principal(void); 
-void aluno(void); 
-void cadastrar_aluno(void);  
+#include<unistd.h> 
+
+char menu_principal(void);
+char tela_menu_principal(void); 
+char funcao_aluno(void);
+char aluno(void); 
+char cadastrar_aluno(void);  
 void alunos_cadastrados(void);
 void tela_sobre(void); 
-void tela_equipe(void); 
-void tela_relatorios(void); 
-void tela_relatorios2(void); 
-void respostas_relatorios2(void);
-void avisos_da_semana(void);  
+void tela_equipe(void);  
+char funcao_tela_relatorios(void);
+char tela_relatorios(void); 
+char tela_relatorios2(void); 
+char resp_relat2(void); 
+char resp_relat3(void); 
+char resp_relat4(void);
+char avisos_da_semana(void);  
 void despesas(void); 
-void saldo_atual(void); 
-void Adicionar_pagamento(void); 
-void pagamentos_atuais(void);  
+char saldo_atual(void); 
+char Adicionar_pagamento(void); 
+char pagamentos_atuais(void);  
+
+
+
 int main(void){ 
 
- tela_menu_principal(); 
+ menu_principal(); 
+ tela_menu_principal();
  aluno(); 
  cadastrar_aluno();  
  alunos_cadastrados();
@@ -25,64 +36,140 @@ int main(void){
  tela_equipe(); 
  tela_relatorios(); 
  tela_relatorios2(); 
- respostas_relatorios2();
+ resp_relat2(); 
+ resp_relat3(); 
+ resp_relat4();
  avisos_da_semana();  
  despesas(); 
  saldo_atual (); 
  Adicionar_pagamento(); 
  pagamentos_atuais(); 
- return; 
-}
-void tela_menu_principal(void){  
- char op; 
- system("clear||cls");
- printf("\n# Universidade Federal do Rio Grande do Norte #"); 
- printf("\n#   Centro de Ensino Superior do Seridó     #"); 
- printf("\n#   Departamento de Computação e Tecnologia #"); 
- printf("\n#       Disciplina DCT1106 -- Programação   #"); 
- printf("\n#    Projeto Sistema de gestão de despesas  #"); 
- printf("\n#           em uma República de Estudantes  #"); 
- printf("\n#             Developed by @josephdouglas   #"); 
- printf("\n#             since agost,2023              #"); 
- printf("\n#    -- Sistema de gestão de despesas --    #"); 
- printf("\n#                                           #");
- printf("\n#           1. Aluno                        #"); 
- printf("\n#           2. Sobre o programa             #"); 
- printf("\n#           3. Relatórios                   #"); 
- printf("\n#           4. Avisos da Semana             #"); 
- printf("\n#           5. Despesas                     #");
- printf("\n Qual sua opção?:");   
- scanf("%c", &op);  
+ return 0; 
 } 
-void aluno(void){ 
-char op; 
-system("clear||cls");
-printf("\n#   --  Área do aluno --     #"); 
-printf("\n# 1.Cadastrar aluno          #"); 
-printf("\n# 2.Alunos cadastrados       #"); 
-printf("\n# 3.Voltar ao menu principal #"); 
-printf("\nQual sua opção?:              "); 
-scanf("%c", &op);  
-return;
-getchar();
-} 
-void cadastrar_aluno(void){   
-system("clear||cls");
-printf("\n# -- Cadastro de alunos --   #");
-printf("\nNome do aluno:                "); 
-printf("\nData de nascimento:           "); 
-printf("\nCPF:                          ");   
-getchar();  
+
+
+//feito com a ajuda do Chat GPT
+void pausa() {
+    sleep(60); // Pausa por 1 minuto
 }
+
+char menu_principal(void){  
+  char op;  
+  do{
+     op = tela_menu_principal();
+    switch(op){ 
+      case '1': 
+        aluno(); 
+        pausa();
+        break; 
+      case '2':  
+        tela_sobre(); 
+        pausa();
+        break;  
+      case '3': 
+       tela_relatorios(); 
+       pausa();
+       break; 
+      case '4': 
+       avisos_da_semana(); 
+       pausa();
+       break; 
+      case '5': 
+       despesas(); 
+       pausa();
+       break;
+    }
+  } while (op != '0');
+  return 0; 
+}
+
+
+
+char tela_menu_principal (void){  
+  char op; 
+  system("clear||cls");
+  printf("\n# Universidade Federal do Rio Grande do Norte #"); 
+  printf("\n#   Centro de Ensino Superior do Seridó     #"); 
+  printf("\n#   Departamento de Computação e Tecnologia #"); 
+  printf("\n#       Disciplina DCT1106 -- Programação   #"); 
+  printf("\n#    Projeto Sistema de gestão de despesas  #"); 
+  printf("\n#           em uma República de Estudantes  #"); 
+  printf("\n#             Developed by @josephdouglas   #"); 
+  printf("\n#             since agost,2023              #"); 
+  printf("\n#    -- Sistema de gestão de despesas --    #"); 
+  printf("\n#                                           #");
+  printf("\n#           1. Aluno                        #"); 
+  printf("\n#           2. Sobre o programa             #"); 
+  printf("\n#           3. Relatórios                   #"); 
+  printf("\n#           4. Avisos da Semana             #"); 
+  printf("\n#           5. Despesas                     #");
+  printf("\n Qual sua opção?:");   
+  scanf("%c", &op); 
+  return op;
+} 
+
+//feito com a ajuda do Chat GPT
+char aluno(void){ 
+  char op; 
+  do {
+    system("clear||cls");
+    printf("\n#   --  Área do aluno --     #"); 
+    printf("\n# 1.Cadastrar aluno          #"); 
+    printf("\n# 2.Alunos cadastrados       #"); 
+    printf("\n# 3.Voltar ao menu principal #"); 
+    printf("\n# 4.Voltar à opção anterior  #");
+    printf("\nQual sua opção?:              "); 
+    scanf("%c", &op);  
+    getchar();
+
+    switch(op) {
+      case '1':
+        cadastrar_aluno(); 
+        pausa();
+        break;
+      case '2':
+        alunos_cadastrados(); 
+        pausa();
+        break;
+      default:
+        printf("\nOpção inválida!\n");
+    }
+  } while(op != '3');
+  
+  return op;
+}
+
+
+
+
+
+char cadastrar_aluno(void){ 
+  char op; 
+  system("clear||cls");
+  printf("\n# -- Cadastro de alunos --   #");
+  printf("\nNome_do_aluno:                ");  
+  printf("\nData de nascimento:           "); 
+  printf("\nCPF:                          ");   
+  scanf ("%c",&op);   
+  getchar(); 
+  return op;  
+}
+
+
+
+
 void alunos_cadastrados(void){  
-char op; 
-system("clear||cls");
-printf("\n## Alunos Cadastrados ##"); 
-printf("\n Zé roela             #"); 
-printf("\n Chavez               #"); 
-getchar();
+  char op; 
+  system("clear||cls");
+  printf("\n## Alunos Cadastrados ##"); 
+  printf("\n Zé roela             #"); 
+  printf("\n Chavez               #"); 
+  getchar();
 }
-void tela_sobre(void) {
+
+
+
+void tela_sobre(void){ 
  system("clear||cls");
  printf("\n#Universidade Federal do Rio Grande do Norte #"); 
  printf("\n#Centro de Ensino Superior do Seridó         #"); 
@@ -103,9 +190,12 @@ void tela_sobre(void) {
  printf("\n#Projeto Sistema de gestão de despesas       #"); 
  printf("\n#em uma República de Estudantes              #"); 
  printf("\n#Developed by @josephdouglas                 #"); 
- printf("\n#since agost,2023                            #"); 
- getchar();
-} 
+ printf("\n#since agost,2023                            #");  
+ getchar(); 
+}
+
+
+
 void tela_equipe(void) {
  system("clear||cls");
  printf("\n###########################################");  
@@ -119,48 +209,108 @@ void tela_equipe(void) {
  printf("\n#                                          #");    
  printf("\n############################################"); 
 }
-void tela_relatorios(void){  
- char op; 
+
+
+//feito com a ajuda do Chat GPT
+char tela_relatorios(void){  
+ char op;
+ do{
  system("clear||cls");
  printf("\n#### relatórios #####"); 
- printf("\n6.Adicionar relatórios");  
- printf("\n7.Voltar ao menu anterior");
+ printf("\n1.Adicionar relatórios");  
+ printf("\n2.Voltar ao menu anterior");
  printf("\nQual sua opção?:");  
  scanf("%c", &op);  
- return;
- getchar(); 
-} 
-void tela_relatorios2(void){ 
+ getchar();  
+ switch(op) {
+      case '1':
+        tela_relatorios2();
+        pausa();
+        break;
+      case '2':
+        tela_menu_principal();
+        pausa();
+        break;
+      default:
+        printf("\nOpção inválida!\n");
+    }
+  } while(op != '0'); 
+ 
+     return op;
+}  
+
+
+
+char tela_relatorios2(void){ 
   char op; 
+  do{
   system("clear||cls");
   printf("\n#### Relatório ####"); 
-  printf("\n8.A república estudantil está em ordem"); 
-  printf("\n9.A república estudantil está precisando de reformas"); 
-  printf("\n10.A república estudantil está fora de ordem");  
+  printf("\n1.A república estudantil está em ordem"); 
+  printf("\n2.A república estudantil está precisando de reformas"); 
+  printf("\n3.A república estudantil está fora de ordem");  
   printf("\n0.Voltar ao menu principal");
   printf("\nQual sua opção?:"); 
   scanf("%c", &op);  
-  return op;
+  getchar();    
+  switch(op) {
+      case '1':
+        resp_relat2();
+        pausa();
+        break;
+      case '2':
+        resp_relat3();
+        pausa();
+        break; 
+    case '3': 
+      resp_relat4();
+      pausa(); 
+      break;
+      default:
+        printf("\nOpção inválida!\n");
+    }
+  } while(op != '3'); 
+ 
+    return op;
+}
+
+ 
+char resp_relat2(void){ 
+  printf("\nA república estudantil está em ordem"); 
+  printf("\n#   FIM   #"); 
   getchar(); 
+  return 0; 
 }
-void respostas_relatorios2(void){  
-system("clear||cls");
-printf("\nA república estudantil está em ordem"); 
-printf("\nA república estudantil está precisando de reformas"); 
-printf("\nA república estudantil está fora de ordem"); 
-printf("\n#   FIM   #");  
-getchar();
+
+char resp_relat3(void){ 
+  printf("\nA república estudantil está precisando de reformas"); 
+  printf("\n#   FIM   #");  
+  getchar(); 
+  return 0; 
+} 
+
+char resp_relat4(void){ 
+  printf("\nA república estudantil está fora de ordem"); 
+  printf("\n#   FIM   #"); 
+  getchar(); 
+  return 0; 
 }
-void avisos_da_semana(void){  
-char op; 
-system("clear||cls");
-printf("\n### Avisos da Semana ###"); 
-printf("\nFaxina as sextas"); 
-printf("\nVarrer aos sábados");   
-getchar();
+
+char avisos_da_semana(void){  
+  char op; 
+  system("clear||cls");
+  printf("\n### Avisos da Semana ###"); 
+  printf("\nFaxina as sextas"); 
+  printf("\nVarrer aos sábados");   
+  getchar(); 
+  return op;
 }
+
+
+
 void despesas(void){ 
- char op; 
+ char op;  
+ do{
  system("clear||cls");
  printf("\n# Universidade Federal do Rio Grande do Norte #"); 
  printf("\n#   Centro de Ensino Superior do Seridó     #"); 
@@ -179,27 +329,105 @@ void despesas(void){
  printf("\n#                                           #"); 
  printf("\n Qual sua opção?:");  
  scanf("%c", &op);  
- return op;
- getchar();
+ getchar(); 
+  
+ switch(op) {
+      case '1':
+        saldo_atual();
+        pausa();
+        break;
+      case '2':
+        Adicionar_pagamento();
+        pausa();
+        break; 
+    case '3': 
+      pagamentos_atuais();
+      pausa(); 
+      break; 
+    case '4': 
+      tela_menu_principal();
+      pausa(); 
+      break;
+      default:
+        printf("\nOpção inválida!\n");
+    }
+  } while(op != '3'); 
+ 
+    return;
 } 
-void saldo_atual (void){  
-char op; 
-system("clear||cls");
-printf("\nSaldo atual: R$ 7000");  
-getchar();
-} 
-void Adicionar_pagamento(void){  
-char op; 
-system("clear||cls");
-printf("\n ---- pagamento ----"); 
-printf("\nDigite um valor:"); 
-getchar();
+
+
+
+char saldo_atual (void){   
+  do{
+  char op; 
+  system("clear||cls");
+  printf("\nSaldo atual: R$ 7000");  
+  printf("\n1.voltar ao menu principal"); 
+  printf("\nQual sua opcao?:");
+  scanf("%c",&op);
+  getchar();  
+  
+  switch(op){ 
+    case '1': 
+    despesas(); 
+    pause(); 
+    break; 
+  default: 
+    printf("\nOpção inválida!\n");
+    }
+  } while(0 != '1'); 
+ 
+    return 0;
 }
-void pagamentos_atuais(void){ 
-char op; 
-system("clear||cls");
-printf("\n ---- Contas pagas ----"); 
-printf("\n06/09 - Financiamento de R$ 1000"); 
-printf("\n07/09 - Financiamento de R$ 500 "); 
-getchar();
+
+
+char Adicionar_pagamento(void){  
+  char op; 
+  do{
+  system("clear||cls");
+  printf("\n ---- pagamento ----"); 
+  printf("\nDigite um valor:"); 
+  printf("\n1.voltar ao menu principal"); 
+  printf("\nQual sua opcao?:"); 
+  scanf("%c",&op);
+  getchar(); 
+ 
+  switch(op){ 
+    case '1': 
+    despesas(); 
+    pause(); 
+    break; 
+  default: 
+    printf("\nOpção inválida!\n");
+    }
+  } while(0 != '1'); 
+ 
+    return 0;
 }
+
+
+char pagamentos_atuais(void){ 
+  char op; 
+  do{
+  system("clear||cls");
+  printf("\n ---- Contas pagas ----"); 
+  printf("\n06/09 - Financiamento de R$ 1000"); 
+  printf("\n07/09 - Financiamento de R$ 500 ");  
+  printf("\n1.voltar ao menu principal"); 
+  printf("\nQual sua opcao?:"); 
+  scanf("%c",&op);
+  getchar(); 
+ 
+  switch(op){ 
+    case '1': 
+    despesas(); 
+    pause(); 
+    break; 
+  default: 
+    printf("\nOpção inválida!\n");
+    }
+  } while(0 != '1'); 
+ 
+    return 0;
+  }
