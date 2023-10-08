@@ -1,4 +1,5 @@
-//Feito com a ajuda do ChatGPT
+//Esse codigo pode ser aproveitado para linguagem python, linguagem C++
+//feito com a ajuda do ChatGPT
 #include <stdio.h>
 
 int validar_pagamento(float valor) {
@@ -22,4 +23,3 @@ int pagamento() {
 
     return 0;
 }
-
