@@ -45,7 +45,7 @@ int validaCPF(char *cpf) {
     return 1;
 }
 
-int main() {
+int cpf() {
     char cpf[12];
     printf("Digite o CPF: ");
     scanf("%s", cpf);
