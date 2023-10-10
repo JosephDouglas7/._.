@@ -254,6 +254,10 @@ char tela_relatorios2(void){
   scanf("%c", &op);  
   getchar();    
   switch(op) {
+      case '0':
+        tela_menu_principal();
+        pausa();
+        break;
       case '1':
         resp_relat2();
         pausa();
@@ -297,14 +301,31 @@ char resp_relat4(void){
 }
 
 char avisos_da_semana(void){  
-  char op; 
+  char op;  
+  do{
   system("clear||cls");
   printf("\n### Avisos da Semana ###"); 
   printf("\nFaxina as sextas"); 
-  printf("\nVarrer aos sábados");   
+  printf("\nVarrer aos sábados");  
+  printf("\n1.Voltar ao menu principal");
+  printf("\n Qual sua opção?:");  
+  scanf("%c", &op);  
   getchar(); 
-  return op;
-}
+
+  switch(op) {
+      case '1':
+        tela_menu_principal();
+        pausa();
+        break;
+      
+      default:
+        printf("\nOpção inválida!\n");
+    }
+  } while(0 != '3'); 
+ 
+    return 0;
+ } 
+
 
 
 
