@@ -144,29 +144,58 @@ char aluno(void){
 
 
 char cadastrar_aluno(void){ 
-  char op; 
+  char op;  
+  do{
   system("clear||cls");
   printf("\n# -- Cadastro de alunos --   #");
   printf("\nNome_do_aluno:                ");  
   printf("\nData de nascimento:           "); 
-  printf("\nCPF:                          ");   
+  printf("\nCPF:                          "); 
+  printf("\n1.Voltar ao menu principal    ");
+  printf("\nQual sua opção?:              "); 
   scanf ("%c",&op);   
   getchar(); 
-  return op;  
-}
+ 
 
+  switch(op) {
+      case '1':
+        tela_menu_principal();
+        pausa();
+        break;
+      default:
+        printf("\nOpção inválida!\n");
+    }
+  } while(op != '3');
+  
+  return op;
+ }
 
 
 
 void alunos_cadastrados(void){  
   char op; 
+  do{
   system("clear||cls");
   printf("\n## Alunos Cadastrados ##"); 
   printf("\n Zé roela             #"); 
-  printf("\n Chavez               #"); 
-  getchar();
-}
+  printf("\n Chavez               #");  
+  printf("\n1.Voltar ao menu principal    ");
+  printf("\nQual sua opção?:              "); 
+  scanf ("%c",&op);   
+  getchar(); 
 
+  switch(op){ 
+    case '1': 
+    tela_menu_principal();
+        pausa();
+        break;
+      default:
+        printf("\nOpção inválida!\n");
+    }
+  } while(op != '3');
+  
+  return;
+}
 
 
 void tela_sobre(void){ 
