@@ -2,7 +2,7 @@
 //Feito com a ajuda do ChatGPT
 #include <stdio.h>
 
-int data() {
+int data2() {
     int dia, mes, ano;
     printf("Digite sua data de nascimento (dd/mm/aaaa): ");
     scanf("%d/%d/%d", &dia, &mes, &ano);
