@@ -1,7 +1,8 @@
 #include <stdio.h>
+#include <string.h>
 #include "util.h"
 
-int valida_nome(char* nome) {
+int nome1(char* nome) {
   int tam;
   
   tam = strlen(nome);
@@ -13,7 +14,7 @@ int valida_nome(char* nome) {
   return 1;  
 }
 
-int eh_letra(char c) {
+int eh_palavra(char c) {
   if (c >= 'A' && c <= 'Z') {
     return 1;
   } else if (c >= 'a' && c <= 'z') {
