@@ -4,6 +4,7 @@
 #include "util.h" 
 #include<unistd.h> 
 
+//Variáveis usadas 
 char menu_principal(void);
 char tela_menu_principal(void); 
 char funcao_aluno(void);
