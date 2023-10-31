@@ -456,7 +456,7 @@ char saldo_atual (void){
 
 
 //Feito com ajuda do ChatGPT
-char Adicionar_pagamento(void){  
+char adicionar_pagamento(void){  
   char op; 
   float valor;
   do{
