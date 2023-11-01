@@ -2,23 +2,178 @@
 #include<stdlib.h> 
 #include "util.h" 
 #include<unistd.h> 
+#include<string.h>
 
+
+
+//Feito com ajuda do ChatGPT
 typedef struct {
     char nome[50];
     char data_nascimento[10];
     char cpf[11];
+    int status; // 0 para inativo, 1 para ativo
 } Aluno;
 
-Aluno alunos[100]; // Array para armazenar até 100 alunos
-int total_alunos = 0; // Variável para acompanhar o número total de alunos
+Aluno alunos[100]; 
+int total_alunos = 0;
 
+void excluir_logico(char *cpf) {
+    for (int i = 0; i < total_alunos; i++) {
+        if (strcmp(alunos[i].cpf, cpf) == 0) {
+            alunos[i].status = 0;
+            break;
+        }
+    }
+}
+
+
+
+void excluir_fisico(char *cpf) {
+    int index = -1;
+    for (int i = 0; i < total_alunos; i++) {
+        if (strcmp(alunos[i].cpf, cpf) == 0) {
+            index = i;
+            break;
+        }
+    }
+
+    if (index != -1) {
+        for (int i = index; i < total_alunos - 1; i++) {
+            alunos[i] = alunos[i + 1];
+        }
+        total_alunos--;
+    }
+}
+
+
+
+// Função para salvar os dados em um arquivo binário
+void salvar_dados() {
+    FILE *file = fopen("alunos.bin", "wb");
+    if (file != NULL) {
+        fwrite(alunos, sizeof(Aluno), total_alunos, file);
+        fclose(file);
+    }
+}
+
+
+
+// Função para carregar os dados de um arquivo binário
+void carregar_dados() {
+    FILE *file = fopen("alunos.bin", "rb");
+    if (file != NULL) {
+        total_alunos = fread(alunos, sizeof(Aluno), 100, file);
+        fclose(file);
+    }
+}
+
+
+
+//Feito com a ajuda do ChatGPT
 typedef struct {
-    char data[10];
-    float valor;
+    char id_pagamento[50];
+    double valor;
+    char data_pagamento[10];
+    int status; // 0 para inativo, 1 para ativo
 } Pagamento;
 
-Pagamento pagamentos[100]; // Array para armazenar até 100 pagamentos
-int total_pagamentos = 0; // Variável para acompanhar o número total de pagamentos 
+Pagamento pagamentos[100]; 
+int total_pagamentos = 0;
+
+void excluir_logico1(char *id_pagamento) {
+    for (int i = 0; i < total_pagamentos; i++) {
+        if (strcmp(pagamentos[i].id_pagamento, id_pagamento) == 0) {
+            pagamentos[i].status = 0;
+            break;
+        }
+    }
+}
+
+void excluir_fisico1(char *id_pagamento) {
+    int index = -1;
+    for (int i = 0; i < total_pagamentos; i++) {
+        if (strcmp(pagamentos[i].id_pagamento, id_pagamento) == 0) {
+            index = i;
+            break;
+        }
+    }
+
+    if (index != -1) {
+        for (int i = index; i < total_pagamentos - 1; i++) {
+            pagamentos[i] = pagamentos[i + 1];
+        }
+        total_pagamentos--;
+    }
+}
+
+// Função para salvar os dados em um arquivo binário
+void salvar_dados1() {
+    FILE *file = fopen("pagamentos.bin", "wb");
+    if (file != NULL) {
+        fwrite(pagamentos, sizeof(Pagamento), total_pagamentos, file);
+        fclose(file);
+    }
+}
+
+// Função para carregar os dados de um arquivo binário
+void carregar_dados1() {
+    FILE *file = fopen("pagamentos.bin", "rb");
+    if (file != NULL) {
+        total_pagamentos = fread(pagamentos, sizeof(Pagamento), 100, file);
+        fclose(file);
+    }
+}
+
+
+
+//Feito com a ajuda do ChatGPT
+typedef struct {
+    int id;
+    char nome[50];
+    int adicionar_pagamento;
+} pagamento;
+
+void excluir_logica(pagamento pagamentos[], int tamanho, int id) {
+    for (int i = 0; i < tamanho; i++) {
+        if (pagamentos[i].id == id) {
+            pagamentos[i].adicionar_pagamento = 0;
+            break;
+        }
+    }
+}
+
+void excluir_fisica(pagamento pagamentos[], int *tamanho, int id) {
+    int indice = -1;
+    for (int i = 0; i < *tamanho; i++) {
+        if (pagamentos[i].id == id) {
+            indice = i;
+            break;
+        }
+    }
+
+    if (indice != -1) {
+        for (int i = indice; i < *tamanho - 1; i++) {
+            pagamentos[i] = pagamentos[i + 1];
+        }
+        (*tamanho)--;
+    }
+}
+
+int p1() {
+    Pagamento pagamentos[10];
+    int tamanho = 10;
+
+    // Adicione os pagamentos aqui
+
+    // Excluir lógica
+    excluir_logica(pagamentos, tamanho, 1);
+
+    // Excluir física
+    excluir_fisica(pagamentos,&tamanho, 2);
+
+    return 0;
+}
+
 
 char menu_principal(void);
 char tela_menu_principal(void); 
@@ -69,6 +224,8 @@ int main(void){
 void pausa() {
     sleep(60); // Pausa por 1 minuto
 }
+
+
 
 char menu_principal(void){  
   char op;  
@@ -125,6 +282,8 @@ char tela_menu_principal (void){
   return op;
 } 
 
+
+
 //feito com a ajuda do Chat GPT
 char aluno(void){ 
   char op; 
@@ -155,6 +314,7 @@ char aluno(void){
   
   return op;
 }
+
 
 
 //Feito com ajuda do ChatGPT
@@ -194,6 +354,7 @@ char cadastrar_aluno(void) {
 }
 
 
+
 void alunos_cadastrados(void){  
   char op; 
 
@@ -219,6 +380,7 @@ void alunos_cadastrados(void){
       }
   } while(op != '3');
 }
+
 
 
 void tela_sobre(void){ 
@@ -261,6 +423,7 @@ void tela_equipe(void) {
  printf("\n#                                          #");    
  printf("\n############################################"); 
 }
+
 
 
 //feito com a ajuda do Chat GPT
@@ -331,6 +494,7 @@ char tela_relatorios2(void){
 }
 
  
+
 char resp_relat2(void){ 
   printf("\nA república estudantil está em ordem"); 
   printf("\n#   FIM   #"); 
@@ -351,6 +515,8 @@ char resp_relat4(void){
   getchar(); 
   return 0; 
 }
+
+
 
 char avisos_da_semana(void){  
   char op;  
@@ -377,7 +543,6 @@ char avisos_da_semana(void){
  
     return 0;
  } 
-
 
 
 
@@ -430,6 +595,7 @@ char despesas(void){
 } 
 
 
+
 //Feito com a ajuda do ChatGPT
 char saldo_atual (void){   
   do{
@@ -453,6 +619,7 @@ char saldo_atual (void){
 
     return 0;
 } 
+
 
 
 //Feito com ajuda do ChatGPT
@@ -488,6 +655,9 @@ char adicionar_pagamento(void){
 
   return 0;
 }
+
+
+
 //Feito com a ajuda do ChatGPT
 char pagamentos_atuais(void) {  
     char op; 
@@ -496,7 +666,7 @@ char pagamentos_atuais(void) {
         system("clear||cls");
         printf("\n ---- Contas pagas ----"); 
         for(int i = 0; i < total_pagamentos; i++) {
-            printf("\n%s - Pagamento de R$ %.2f", pagamentos[i].data, pagamentos[i].valor); 
+          printf("\n%s - Pagamento de R$ %.2f", pagamentos[i].data_pagamento, pagamentos[i].valor); 
         }
 
         printf("\n1.Voltar ao menu principal");
