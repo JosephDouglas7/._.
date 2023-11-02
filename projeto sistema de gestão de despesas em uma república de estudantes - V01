@@ -7,65 +7,72 @@
 
 
 //Feito com ajuda do ChatGPT
-typedef struct {
-    char nome[50];
-    char data_nascimento[10];
-    char cpf[11];
-    int status; // 0 para inativo, 1 para ativo
-} Aluno;
+ typedef struct {
+     char nome[50];
+     char data_nascimento[10];
+     char cpf[11];
+     int status; // 0 para inativo, 1 para ativo
+ } Aluno;
 
-Aluno alunos[100]; 
-int total_alunos = 0;
+ Aluno alunos[100]; 
+ int total_alunos = 0;
 
-void excluir_logico(char *cpf) {
-    for (int i = 0; i < total_alunos; i++) {
-        if (strcmp(alunos[i].cpf, cpf) == 0) {
-            alunos[i].status = 0;
-            break;
-        }
-    }
-}
-
-
-
-void excluir_fisico(char *cpf) {
-    int index = -1;
-    for (int i = 0; i < total_alunos; i++) {
-        if (strcmp(alunos[i].cpf, cpf) == 0) {
-            index = i;
-            break;
-        }
-    }
-
-    if (index != -1) {
-        for (int i = index; i < total_alunos - 1; i++) {
-            alunos[i] = alunos[i + 1];
-        }
-        total_alunos--;
-    }
-}
+ void excluir_logico(char *cpf) {
+     for (int i = 0; i < total_alunos; i++) {
+         if (strcmp(alunos[i].cpf, cpf) == 0) {
+             alunos[i].status = 0;
+             break;
+         }
+     }
+ }
 
 
 
-// Função para salvar os dados em um arquivo binário
-void salvar_dados() {
-    FILE *file = fopen("alunos.bin", "wb");
-    if (file != NULL) {
-        fwrite(alunos, sizeof(Aluno), total_alunos, file);
-        fclose(file);
-    }
-}
+ void excluir_fisico(char *cpf) {
+     int index = -1;
+     for (int i = 0; i < total_alunos; i++) {
+         if (strcmp(alunos[i].cpf, cpf) == 0) {
+             index = i;
+             break;
+         }
+     }
+
+     if (index != -1) {
+         for (int i = index; i < total_alunos - 1; i++) {
+             alunos[i] = alunos[i + 1];
+         }
+         total_alunos--;
+     }
+ }
 
 
 
-// Função para carregar os dados de um arquivo binário
-void carregar_dados() {
-    FILE *file = fopen("alunos.bin", "rb");
-    if (file != NULL) {
-        total_alunos = fread(alunos, sizeof(Aluno), 100, file);
-        fclose(file);
-    }
-}
+ // Função para salvar os dados em um arquivo binário
+ void salvar_dados() {
+     FILE *file = fopen("alunos.bin", "wb");
+     if (file != NULL) {
+         fwrite(alunos, sizeof(Aluno), total_alunos, file);
+         fclose(file);
+     }
+ }
+
+
+
+ // Função para carregar os dados de um arquivo binário
+ void carregar_dados() {
+     FILE *file = fopen("alunos.bin", "rb");
+     if (file != NULL) {
+         total_alunos = fread(alunos, sizeof(Aluno), 100, file);
+         fclose(file);
+     }
+ } 
+ void recuperar_excluidos() {
+     for (int i = 0; i < total_alunos; i++) {
+         if (alunos[i].status == 0) {
+             alunos[i].status = 1;
+         }
+     }
+ }
 
 
 
@@ -123,10 +130,16 @@ void carregar_dados1() {
         fclose(file);
     }
 }
+void recuperar_excluidos1() {
+    for (int i = 0; i < total_pagamentos; i++) {
+        if (pagamentos[i].status == 0) {
+            pagamentos[i].status = 1;
+        }
+    }
+}
 
 
 
-//Feito com a ajuda do ChatGPT
 typedef struct {
     int id;
     char nome[50];
@@ -159,8 +172,16 @@ void excluir_fisica(pagamento pagamentos[], int *tamanho, int id) {
     }
 }
 
-int p1() {
-    Pagamento pagamentos[10];
+void recuperar_excluidos_1(pagamento pagamentos[], int tamanho) {
+    for (int i = 0; i < tamanho; i++) {
+        if (pagamentos[i].adicionar_pagamento == 0) {
+            pagamentos[i].adicionar_pagamento = 1;
+        }
+    }
+}
+
+int pag() {
+    pagamento pagamentos[10];
     int tamanho = 10;
 
     // Adicione os pagamentos aqui
@@ -171,8 +192,12 @@ int p1() {
     // Excluir física
     excluir_fisica(pagamentos,&tamanho, 2);
 
+    // Recuperar excluídos
+    recuperar_excluidos(pagamentos, tamanho);
+
     return 0;
 }
+
 
 
 char menu_principal(void);
