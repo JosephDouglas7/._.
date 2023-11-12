@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <string.h>
 
-//Feito com a ajuda do chat GPT
+//Feito com a ajuda do Chat bing
 // Definindo o tipo abstrato de dados Nome
 typedef struct {
     char texto[100]; // Considerando que o nome terá no máximo 100 caracteres
