@@ -6,7 +6,7 @@
 
 
 
-//Feito com ajuda do ChatGPT
+//Feito com ajuda do Chat bing
  typedef struct {
      char nome[50];
      char data_nascimento[10];
@@ -76,7 +76,7 @@
 
 
 
-//Feito com a ajuda do ChatGPT
+//Feito com a ajuda do Chat bing
 typedef struct {
     char id_pagamento[50];
     double valor;
@@ -205,7 +205,6 @@ char tela_menu_principal(void);
 char funcao_aluno(void);
 char aluno(void); 
 char cadastrar_aluno(void);  
-void alunos_cadastrados(void);
 void tela_sobre(void); 
 void tela_equipe(void);  
 char funcao_tela_relatorios(void);
@@ -228,7 +227,6 @@ int main(void){
  tela_menu_principal();
  aluno(); 
  cadastrar_aluno();  
- alunos_cadastrados();
  tela_sobre(); 
  tela_equipe(); 
  tela_relatorios(); 
@@ -245,7 +243,7 @@ int main(void){
 } 
 
 
-//feito com a ajuda do Chat GPT
+//feito com a ajuda do Chat bing
 void pausa() {
     sleep(60); // Pausa por 1 minuto
 }
@@ -309,16 +307,14 @@ char tela_menu_principal (void){
 
 
 
-//feito com a ajuda do Chat GPT
+//feito com a ajuda do Chat bing
 char aluno(void){ 
   char op; 
   do {
     system("clear||cls");
     printf("\n#   --  Área do aluno --     #"); 
-    printf("\n# 1.Cadastrar aluno          #"); 
-    printf("\n# 2.Alunos cadastrados       #"); 
-    printf("\n# 3.Voltar ao menu principal #"); 
-    printf("\n# 4.Voltar à opção anterior  #");
+    printf("\n# 1.Alunos cadastrados       #"); 
+    printf("\n# 2.Voltar ao menu principal #"); 
     printf("\nQual sua opção?:              "); 
     scanf("%c", &op);  
     getchar();
@@ -329,81 +325,44 @@ char aluno(void){
         pausa();
         break;
       case '2':
-        alunos_cadastrados(); 
+        tela_menu_principal(); 
         pausa();
         break;
       default:
         printf("\nOpção inválida!\n");
     }
   } while(op != '3');
-  
+
   return op;
 }
 
 
 
-//Feito com ajuda do ChatGPT
-char cadastrar_aluno(void) { 
-    char op;  
-
-    do {
-        system("clear||cls");
-        printf("\n# -- Cadastro de alunos --   #");
-        printf("\nNome_do_aluno:                ");  
-        scanf("%s", alunos[total_alunos].nome);
-        printf("\nData de nascimento:           "); 
-        scanf("%s", alunos[total_alunos].data_nascimento);
-        printf("\nCPF:                          "); 
-        scanf("%s", alunos[total_alunos].cpf);
-        printf("\n1.Voltar ao menu principal    ");
-        printf("\n2.Confirmar cadastro          ");
-        printf("\nQual sua opção?:              "); 
-        scanf (" %c", &op);   
-        getchar(); 
-
-        switch(op) {
-            case '1':
-                tela_menu_principal();
-                break;
-            case '2':
-                printf("\nAluno cadastrado com sucesso!\n");
-                total_alunos++;
-                pausa();
-                break;
-            default:
-                printf("\nOpção inválida!\n");
-        }
-    } while(op != '1' && op != '2');
-
-    return 0;
-}
-
-
-
-void alunos_cadastrados(void){  
-  char op; 
-
-  do{
+//Feito com ajuda do Chat bing
+char cadastrar_aluno(void) {
+    char op; 
+    int i;
     system("clear||cls");
-    printf("\n## Alunos Cadastrados ##"); 
-    for(int i = 0; i < total_alunos; i++) {
-        printf("\n %s             #", alunos[i].nome); 
+    printf("\n# -- Alunos cadastrados --   #\n"); 
+    printf("\nHercules"); 
+    printf("\nVagner");
+    for(i = 0; i < total_alunos; i++) {
+        printf("\nNome do aluno: %s", alunos[i].nome);
+        printf("\nData de nascimento: %s", alunos[i].data_nascimento);
+        printf("\nCPF: %s\n", alunos[i].cpf);
+        getchar();
     }
-
-    printf("\n1.Voltar ao menu principal");
+    printf("\n# 1.Voltar ao menu principal  #");
     printf("\nQual sua opção?:              "); 
-    scanf ("%c",&op);   
-    getchar(); 
+    scanf("%c", &op);  
+    getchar();
 
-    switch(op){ 
-      case '1': 
-          tela_menu_principal();
-          pausa();
-          break;
-        default:
-          printf("\nOpção inválida!\n");
-      }
-  } while(op != '3');
+    if(op == '1') {
+        tela_menu_principal();
+    } else {
+        printf("\nOpção inválida!\n");
+    } 
+    return op;
 }
 
 
@@ -451,7 +410,7 @@ void tela_equipe(void) {
 
 
 
-//feito com a ajuda do Chat GPT
+//feito com a ajuda do Chat bing
 char tela_relatorios(void){  
  char op;
  do{
@@ -475,7 +434,7 @@ char tela_relatorios(void){
         printf("\nOpção inválida!\n");
     }
   } while(op != '0'); 
- 
+
      return op;
 }  
 
@@ -514,11 +473,11 @@ char tela_relatorios2(void){
         printf("\nOpção inválida!\n");
     }
   } while(op != '3'); 
- 
+
     return op;
 }
 
- 
+
 
 char resp_relat2(void){ 
   printf("\nA república estudantil está em ordem"); 
@@ -560,12 +519,12 @@ char avisos_da_semana(void){
         tela_menu_principal();
         pausa();
         break;
-      
+
       default:
         printf("\nOpção inválida!\n");
     }
   } while(0 != '3'); 
- 
+
     return 0;
  } 
 
@@ -593,7 +552,7 @@ char despesas(void){
  printf("\n Qual sua opção?:");  
  scanf("%c", &op);  
  getchar(); 
-  
+
  switch(op) {
       case '1':
         saldo_atual();
@@ -615,13 +574,13 @@ char despesas(void){
         printf("\nOpção inválida!\n");
     }
   } while(op != '3'); 
- 
+
     return 0;
 } 
 
 
 
-//Feito com a ajuda do ChatGPT
+//Feito com a ajuda do Chat bing
 char saldo_atual (void){   
   do{
   char op; 
@@ -647,7 +606,7 @@ char saldo_atual (void){
 
 
 
-//Feito com ajuda do ChatGPT
+//Feito com ajuda do Chat bing
 char adicionar_pagamento(void){  
   char op; 
   float valor;
@@ -683,7 +642,7 @@ char adicionar_pagamento(void){
 
 
 
-//Feito com a ajuda do ChatGPT
+//Feito com a ajuda do Chat bing
 char pagamentos_atuais(void) {  
     char op; 
 
