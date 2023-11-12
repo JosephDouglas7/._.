@@ -1,4 +1,4 @@
-//Feito com a ajuda do ChatGPT
+//Feito com a ajuda do Chat bing
 #include <stdio.h>
 #include<string.h>
 // Definindo o tipo abstrato de dados Pagamento
