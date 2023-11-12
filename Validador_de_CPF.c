@@ -1,5 +1,5 @@
 //Esse codigo pode ser aproveitado para linguagem python, linguagem C++
-//Feito com a ajuda do ChatGPT
+//Feito com a ajuda do Chat bing
 #include <stdio.h>
 #include <string.h>
 
