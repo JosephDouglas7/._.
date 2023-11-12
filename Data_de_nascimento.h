@@ -1,4 +1,4 @@
-//Feito com a ajuda do chat GPT
+//Feito com a ajuda do Chat bing
 #include <stdio.h>
 
 // Definindo o tipo abstrato de dados Data
