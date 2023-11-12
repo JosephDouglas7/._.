@@ -1,5 +1,5 @@
 //Esse codigo pode ser aproveitado para linguagem python, linguagem C++
-//feito com a ajuda do ChatGPT
+//Feito com a ajuda do Chat bing
 #include <stdio.h>
 
 int saldo() {
