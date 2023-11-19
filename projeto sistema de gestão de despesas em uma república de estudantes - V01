@@ -6,7 +6,7 @@
 
 
 
-//Feito com ajuda do Chat bing
+//Feito com a ajuda do chat bing 
  typedef struct {
      char nome[50];
      char data_nascimento[10];
@@ -76,7 +76,7 @@
 
 
 
-//Feito com a ajuda do Chat bing
+//Feito com a ajuda do chat bing 
 typedef struct {
     char id_pagamento[50];
     double valor;
@@ -199,7 +199,6 @@ int pag() {
 }
 
 
-
 char menu_principal(void);
 char tela_menu_principal(void); 
 char funcao_aluno(void);
@@ -212,7 +211,9 @@ char tela_relatorios(void);
 char tela_relatorios2(void); 
 char resp_relat2(void); 
 char resp_relat3(void); 
-char resp_relat4(void);
+char resp_relat4(void);  
+char relatorio_atualizado(void); 
+char exibir_resultado_relatorio2(void);
 char avisos_da_semana(void);  
 char despesas(void); 
 char saldo_atual(void); 
@@ -222,7 +223,8 @@ char pagamentos_atuais(void);
 
 
 int main(void){ 
-
+ int *r; 
+ r = &tela_relatorios2;
  menu_principal(); 
  tela_menu_principal();
  aluno(); 
@@ -233,7 +235,9 @@ int main(void){
  tela_relatorios2(); 
  resp_relat2(); 
  resp_relat3(); 
- resp_relat4();
+ resp_relat4(); 
+ relatorio_atualizado(); 
+ exibir_resultado_relatorio2();
  avisos_da_semana();  
  despesas(); 
  saldo_atual(); 
@@ -243,7 +247,7 @@ int main(void){
 } 
 
 
-//feito com a ajuda do Chat bing
+//Feito com a ajuda do chat bing 
 void pausa() {
     sleep(60); // Pausa por 1 minuto
 }
@@ -307,7 +311,7 @@ char tela_menu_principal (void){
 
 
 
-//feito com a ajuda do Chat bing
+//Feito com a ajuda do chat bing 
 char aluno(void){ 
   char op; 
   do {
@@ -338,7 +342,7 @@ char aluno(void){
 
 
 
-//Feito com ajuda do Chat bing
+//Feito com a ajuda do chat bing 
 char cadastrar_aluno(void) {
     char op; 
     int i;
@@ -410,7 +414,7 @@ void tela_equipe(void) {
 
 
 
-//feito com a ajuda do Chat bing
+//Feito com a ajuda do chat bing 
 char tela_relatorios(void){  
  char op;
  do{
@@ -447,7 +451,8 @@ char tela_relatorios2(void){
   printf("\n#### Relatório ####"); 
   printf("\n1.A república estudantil está em ordem"); 
   printf("\n2.A república estudantil está precisando de reformas"); 
-  printf("\n3.A república estudantil está fora de ordem");  
+  printf("\n3.A república estudantil está fora de ordem"); 
+  printf("\n4.relatórios atualizados"); 
   printf("\n0.Voltar ao menu principal");
   printf("\nQual sua opção?:"); 
   scanf("%c", &op);  
@@ -468,14 +473,18 @@ char tela_relatorios2(void){
     case '3': 
       resp_relat4();
       pausa(); 
-      break;
+      break; 
+    case '4': 
+       relatorio_atualizado(); 
+       pause(); 
+       break;
       default:
         printf("\nOpção inválida!\n");
     }
   } while(op != '3'); 
 
     return op;
-}
+} 
 
 
 
@@ -498,6 +507,47 @@ char resp_relat4(void){
   printf("\n#   FIM   #"); 
   getchar(); 
   return 0; 
+}
+
+
+
+//Feito com a ajuda do chat bing 
+char relatorio_atualizado(void){ 
+  char op; 
+   do { 
+      system("clear||cls");
+      printf("\n----- Relatorios atualizados -----");   
+      printf("\n0.Voltar ao menu principal");
+      printf("\n1.Exibir o resultado do relatório 2");
+      printf("\nQual sua opção?:"); 
+      scanf("%c", &op);  
+      getchar();  
+      switch(op) {
+        case '0':
+          tela_menu_principal();
+          pausa();
+          break; 
+        case '1':
+          exibir_resultado_relatorio2();
+          pausa();
+          break;
+        default:
+          printf("\nOpção inválida!\n");
+      }
+    } while(op!= '3' && '4'); 
+
+    return op;
+} 
+
+
+
+//Feito com a ajuda do chat bing 
+char exibir_resultado_relatorio2(void){ 
+ char op; 
+ system("clear||cls");
+ printf("%c", tela_relatorios2()); // Chama a função aqui  
+ getchar();  
+ return op;
 }
 
 
@@ -580,7 +630,7 @@ char despesas(void){
 
 
 
-//Feito com a ajuda do Chat bing
+//Feito com a ajuda do chat bing 
 char saldo_atual (void){   
   do{
   char op; 
@@ -606,7 +656,7 @@ char saldo_atual (void){
 
 
 
-//Feito com ajuda do Chat bing
+//Feito com a ajuda do chat bing 
 char adicionar_pagamento(void){  
   char op; 
   float valor;
@@ -642,7 +692,7 @@ char adicionar_pagamento(void){
 
 
 
-//Feito com a ajuda do Chat bing
+//Feito com a ajuda do chat bing 
 char pagamentos_atuais(void) {  
     char op; 
 
