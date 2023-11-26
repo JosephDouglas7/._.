@@ -6,7 +6,7 @@
 
 
 
-//Feito com ajuda do ChatGPT
+//Feito com a ajuda do Chat bing
 typedef struct {
     char nome[50];
     char data_nascimento[10];
@@ -83,7 +83,7 @@ char recuperar_excluidos() {
 
 
 
-//Feito com a ajuda do ChatGPT
+//Feito com a ajuda do Chat bing
 typedef struct {
     char id_pagamento[50];
     double valor;
@@ -253,7 +253,7 @@ int main(void){
 } 
 
 
-//feito com a ajuda do Chat GPT
+//Feito com a ajuda do Chat bing
 void pausa() {
     sleep(60); // Pausa por 1 minuto
 }
@@ -317,7 +317,7 @@ char tela_menu_principal (void){
 
 
 
-//feito com a ajuda do Chat GPT
+//Feito com a ajuda do Chat bing
 char aluno(void){ 
   char op; 
   do {
@@ -348,7 +348,7 @@ char aluno(void){
 
 
 
-//Feito com ajuda do ChatGPT
+//Feito com a ajuda do Chat bing
   char cadastrar_aluno(void) {
       char op; 
       char aluno; 
@@ -427,7 +427,7 @@ void tela_equipe(void) {
 
 
 
-//feito com a ajuda do Chat GPT
+//Feito com a ajuda do Chat bing
 char tela_relatorios(void){  
  char op;
  do{
@@ -554,7 +554,7 @@ char relatorio_atualizado(void){
 
 
 
-//Feito com ajuda do ChatGPT
+//Feito com a ajuda do Chat bing
 char exibir_resultado_relatorio2(void){ 
  char op; 
  system("clear||cls");
@@ -643,7 +643,7 @@ char despesas(void){
 
 
 
-//Feito com a ajuda do ChatGPT
+//Feito com a ajuda do Chat bing
 char saldo_atual (void){   
   do{
   char op; 
@@ -669,7 +669,7 @@ char saldo_atual (void){
 
 
 
-//Feito com ajuda do ChatGPT
+//Feito com a ajuda do Chat bing
 char adicionar_pagamento(void){  
   char op; 
   float valor;
@@ -705,7 +705,7 @@ char adicionar_pagamento(void){
 
 
 
-//Feito com a ajuda do ChatGPT
+//Feito com a ajuda do Chat bing
 char pagamentos_atuais(void) {  
     char op; 
 
