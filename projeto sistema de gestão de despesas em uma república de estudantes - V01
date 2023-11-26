@@ -6,29 +6,30 @@
 
 
 
-//Feito com a ajuda do chat bing 
- typedef struct {
-     char nome[50];
-     char data_nascimento[10];
-     char cpf[11];
-     int status; // 0 para inativo, 1 para ativo
- } Aluno;
+//Feito com ajuda do ChatGPT
+typedef struct {
+    char nome[50];
+    char data_nascimento[10];
+    char cpf[11]; 
+    char status;
+} Aluno;
 
- Aluno alunos[100]; 
- int total_alunos = 0;
+Aluno alunos[100];
+int total_alunos = 0;
 
- void excluir_logico(char *cpf) {
+char excluir_logico(char *cpf) {
      for (int i = 0; i < total_alunos; i++) {
          if (strcmp(alunos[i].cpf, cpf) == 0) {
-             alunos[i].status = 0;
+             alunos[i].status = "0"; 
              break;
          }
-     }
- }
+     } 
+  return 0;
+}
 
 
 
- void excluir_fisico(char *cpf) {
+ char excluir_fisico(char *cpf) {
      int index = -1;
      for (int i = 0; i < total_alunos; i++) {
          if (strcmp(alunos[i].cpf, cpf) == 0) {
@@ -42,41 +43,47 @@
              alunos[i] = alunos[i + 1];
          }
          total_alunos--;
-     }
+     } 
+   return 0;
  }
 
 
 
  // Função para salvar os dados em um arquivo binário
- void salvar_dados() {
+ char salvar_dados() {
      FILE *file = fopen("alunos.bin", "wb");
      if (file != NULL) {
          fwrite(alunos, sizeof(Aluno), total_alunos, file);
          fclose(file);
-     }
+     } 
+    return 0;
  }
 
 
 
  // Função para carregar os dados de um arquivo binário
- void carregar_dados() {
+ char carregar_dados() {
      FILE *file = fopen("alunos.bin", "rb");
      if (file != NULL) {
          total_alunos = fread(alunos, sizeof(Aluno), 100, file);
          fclose(file);
-     }
+     } 
+   return 0;
  } 
- void recuperar_excluidos() {
+char recuperar_excluidos() {
      for (int i = 0; i < total_alunos; i++) {
          if (alunos[i].status == 0) {
              alunos[i].status = 1;
          }
-     }
- }
+     } 
+  return 0;
+}
 
 
 
-//Feito com a ajuda do chat bing 
+
+
+//Feito com a ajuda do ChatGPT
 typedef struct {
     char id_pagamento[50];
     double valor;
@@ -193,10 +200,9 @@ int pag() {
     excluir_fisica(pagamentos,&tamanho, 2);
 
     // Recuperar excluídos
-    recuperar_excluidos(pagamentos, tamanho);
-
+    recuperar_excluidos(pagamentos, tamanho); 
     return 0;
-}
+} 
 
 
 char menu_principal(void);
@@ -222,12 +228,12 @@ char pagamentos_atuais(void);
 
 
 
-int main(void){ 
+int main(void){  
+ char aluno;  
  int *r; 
- r = &tela_relatorios2;
+ r = &tela_relatorios2;   
  menu_principal(); 
- tela_menu_principal();
- aluno(); 
+ tela_menu_principal(); 
  cadastrar_aluno();  
  tela_sobre(); 
  tela_equipe(); 
@@ -247,7 +253,7 @@ int main(void){
 } 
 
 
-//Feito com a ajuda do chat bing 
+//feito com a ajuda do Chat GPT
 void pausa() {
     sleep(60); // Pausa por 1 minuto
 }
@@ -311,13 +317,13 @@ char tela_menu_principal (void){
 
 
 
-//Feito com a ajuda do chat bing 
+//feito com a ajuda do Chat GPT
 char aluno(void){ 
   char op; 
   do {
     system("clear||cls");
     printf("\n#   --  Área do aluno --     #"); 
-    printf("\n# 1.Alunos cadastrados       #"); 
+    printf("\n# 1.Cadastrar aluno          #"); 
     printf("\n# 2.Voltar ao menu principal #"); 
     printf("\nQual sua opção?:              "); 
     scanf("%c", &op);  
@@ -342,36 +348,43 @@ char aluno(void){
 
 
 
-//Feito com a ajuda do chat bing 
-char cadastrar_aluno(void) {
-    char op; 
-    int i;
-    system("clear||cls");
-    printf("\n# -- Alunos cadastrados --   #\n"); 
-    printf("\nHercules"); 
-    printf("\nVagner");
-    for(i = 0; i < total_alunos; i++) {
-        printf("\nNome do aluno: %s", alunos[i].nome);
-        printf("\nData de nascimento: %s", alunos[i].data_nascimento);
-        printf("\nCPF: %s\n", alunos[i].cpf);
-        getchar();
-    }
-    printf("\n# 1.Voltar ao menu principal  #");
-    printf("\nQual sua opção?:              "); 
-    scanf("%c", &op);  
-    getchar();
+//Feito com ajuda do ChatGPT
+  char cadastrar_aluno(void) {
+      char op; 
+      char aluno; 
+      int *r; 
+      r = &aluno; 
+      char data_de_nascimento;  
+      char cpf; 
+    do{
+      system("clear||cls");
+      printf("\n# -- Cadastrar aluno --   #\n");
+      printf("\nNome do aluno: ");
+      scanf("%c",&aluno);
+      printf("\nData de nascimento: ");
+      scanf("%c",&data_de_nascimento); 
+      printf("\nCPF: ");
+      scanf("%c",&cpf); 
+      printf("aluno cadastrado com base no último digito de cpf cadastrado:%c",aluno);
+      printf("\nAluno cadastrado com sucesso");
+      printf("\n# 1.Voltar ao menu principal  #"); 
+      printf("\nQual sua opção?:               "); 
+      scanf("%c", &op);  
+      getchar();
+    switch(op) {
+        case '1':
+          tela_menu_principal(); 
+          pausa();
+          break;
+        default:
+          printf("\nOpção inválida!\n");
+      }
+    } while(op != '3'); 
+    
+     return op;
+}  
 
-    if(op == '1') {
-        tela_menu_principal();
-    } else {
-        printf("\nOpção inválida!\n");
-    } 
-    return op;
-}
-
-
-
-void tela_sobre(void){ 
+void tela_sobre(void){  
  system("clear||cls");
  printf("\n#Universidade Federal do Rio Grande do Norte #"); 
  printf("\n#Centro de Ensino Superior do Seridó         #"); 
@@ -414,7 +427,7 @@ void tela_equipe(void) {
 
 
 
-//Feito com a ajuda do chat bing 
+//feito com a ajuda do Chat GPT
 char tela_relatorios(void){  
  char op;
  do{
@@ -541,7 +554,7 @@ char relatorio_atualizado(void){
 
 
 
-//Feito com a ajuda do chat bing 
+//Feito com ajuda do ChatGPT
 char exibir_resultado_relatorio2(void){ 
  char op; 
  system("clear||cls");
@@ -630,7 +643,7 @@ char despesas(void){
 
 
 
-//Feito com a ajuda do chat bing 
+//Feito com a ajuda do ChatGPT
 char saldo_atual (void){   
   do{
   char op; 
@@ -656,7 +669,7 @@ char saldo_atual (void){
 
 
 
-//Feito com a ajuda do chat bing 
+//Feito com ajuda do ChatGPT
 char adicionar_pagamento(void){  
   char op; 
   float valor;
@@ -692,7 +705,7 @@ char adicionar_pagamento(void){
 
 
 
-//Feito com a ajuda do chat bing 
+//Feito com a ajuda do ChatGPT
 char pagamentos_atuais(void) {  
     char op; 
 
