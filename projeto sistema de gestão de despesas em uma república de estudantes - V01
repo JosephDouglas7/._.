@@ -2,209 +2,29 @@
 #include<stdlib.h> 
 #include "util.h" 
 #include<unistd.h> 
-#include<string.h>
+#include<string.h> 
+#include"nome.h"
+#include"Pagamento.h" 
+#include"Pagamentos_atuais.h" 
+#include"cadastrar_aluno.h"
+#include"Saldo_atual.h" 
+#include"Data_de_nascimento.h"
 
 
-
-//Feito com ajuda do ChatGPT
-typedef struct {
-    char nome[50];
-    char data_nascimento[10]; 
-    char cpf[10]; 
-    char celular[12];
-    char status;
-} Aluno;
-
-
-Aluno alunos[100];
-int total_alunos = 0;
-
-char excluir_logico(char *cpf) {
-     for (int i = 0; i < total_alunos; i++) {
-         if (strcmp(alunos[i].cpf, cpf) == 0) {
-             alunos[i].status = "0"; 
-             break;
-         }
-     } 
-  return 0;
-}
-
-
-
- char excluir_fisico(char *cpf) {
-     int index = -1;
-     for (int i = 0; i < total_alunos; i++) {
-         if (strcmp(alunos[i].cpf, cpf) == 0) {
-             index = i;
-             break;
-         }
-     }
-
-     if (index != -1) {
-         for (int i = index; i < total_alunos - 1; i++) {
-             alunos[i] = alunos[i + 1];
-         }
-         total_alunos--;
-     } 
-   return 0;
- }
-
-
-
- // Função para salvar os dados em um arquivo binário
- char salvar_dados() {
-     FILE *file = fopen("alunos.bin", "wb");
-     if (file != NULL) {
-         fwrite(alunos, sizeof(Aluno), total_alunos, file);
-         fclose(file);
-     } 
-    return 0;
- }
-
-
-
- // Função para carregar os dados de um arquivo binário
- char carregar_dados() {
-     FILE *file = fopen("alunos.bin", "rb");
-     if (file != NULL) {
-         total_alunos = fread(alunos, sizeof(Aluno), 100, file);
-         fclose(file);
-     } 
-   return 0;
- } 
-char recuperar_excluidos() {
-     for (int i = 0; i < total_alunos; i++) {
-         if (alunos[i].status == 0) {
-             alunos[i].status = 1;
-         }
-     } 
-  return 0;
-}
-
-
-
-
-
-//Feito com a ajuda do ChatGPT
-typedef struct {
-    char id_pagamento[50];
-    double valor;
-    char data_pagamento[10];
-    int status; // 0 para inativo, 1 para ativo
-} Pagamento;
-
-Pagamento pagamentos[100]; 
-int total_pagamentos = 0;
-
-void excluir_logico1(char *id_pagamento) {
-    for (int i = 0; i < total_pagamentos; i++) {
-        if (strcmp(pagamentos[i].id_pagamento, id_pagamento) == 0) {
-            pagamentos[i].status = 0;
-            break;
-        }
-    }
-}
-
-void excluir_fisico1(char *id_pagamento) {
-    int index = -1;
-    for (int i = 0; i < total_pagamentos; i++) {
-        if (strcmp(pagamentos[i].id_pagamento, id_pagamento) == 0) {
-            index = i;
-            break;
-        }
-    }
-
-    if (index != -1) {
-        for (int i = index; i < total_pagamentos - 1; i++) {
-            pagamentos[i] = pagamentos[i + 1];
-        }
-        total_pagamentos--;
-    }
-}
-
-// Função para salvar os dados em um arquivo binário
-void salvar_dados1() {
-    FILE *file = fopen("pagamentos.bin", "wb");
-    if (file != NULL) {
-        fwrite(pagamentos, sizeof(Pagamento), total_pagamentos, file);
-        fclose(file);
-    }
-}
-
-// Função para carregar os dados de um arquivo binário
-void carregar_dados1() {
-    FILE *file = fopen("pagamentos.bin", "rb");
-    if (file != NULL) {
-        total_pagamentos = fread(pagamentos, sizeof(Pagamento), 100, file);
-        fclose(file);
-    }
-}
-void recuperar_excluidos1() {
-    for (int i = 0; i < total_pagamentos; i++) {
-        if (pagamentos[i].status == 0) {
-            pagamentos[i].status = 1;
-        }
-    }
-}
-
-
+ 
 
 typedef struct {
-    int id;
-    char nome[50];
-    int adicionar_pagamento;
-} pagamento;
+  char nome[100];
+  char data_nascimento[11];
+  char celular[15];
+} Aluno; 
 
-void excluir_logica(pagamento pagamentos[], int tamanho, int id) {
-    for (int i = 0; i < tamanho; i++) {
-        if (pagamentos[i].id == id) {
-            pagamentos[i].adicionar_pagamento = 0;
-            break;
-        }
-    }
-}
+ 
 
-void excluir_fisica(pagamento pagamentos[], int *tamanho, int id) {
-    int indice = -1;
-    for (int i = 0; i < *tamanho; i++) {
-        if (pagamentos[i].id == id) {
-            indice = i;
-            break;
-        }
-    }
 
-    if (indice != -1) {
-        for (int i = indice; i < *tamanho - 1; i++) {
-            pagamentos[i] = pagamentos[i + 1];
-        }
-        (*tamanho)--;
-    }
-}
 
-void recuperar_excluidos_1(pagamento pagamentos[], int tamanho) {
-    for (int i = 0; i < tamanho; i++) {
-        if (pagamentos[i].adicionar_pagamento == 0) {
-            pagamentos[i].adicionar_pagamento = 1;
-        }
-    }
-}
 
-int pag() {
-    pagamento pagamentos[10];
-    int tamanho = 10;
 
-    // Adicione os pagamentos aqui
-
-    // Excluir lógica
-    excluir_logica(pagamentos, tamanho, 1);
-
-    // Excluir física
-    excluir_fisica(pagamentos,&tamanho, 2);
-
-    // Recuperar excluídos
-    recuperar_excluidos(pagamentos, tamanho); 
-    return 0;
-} 
 
 char menu_principal(void);
 char tela_menu_principal(void); 
@@ -259,6 +79,7 @@ int main(void){
  pagamentos_atuais(); 
  return 0; 
 } 
+
 
 
 //feito com a ajuda do Chat GPT
@@ -365,21 +186,25 @@ char aluno(void){
 
 
 //Feito com base no exemplo de aluno.c do github do professor Flavios Gorgonio
-char cadastrar_aluno(void){   
-  Aluno novo_aluno;
+char cadastrar_aluno(void){  
+  Aluno*novo_aluno = malloc(sizeof(Aluno));
+  if(novo_aluno == NULL) {
+    printf("Erro ao alocar memória.\n");
+    return 1;
+  }
   system("clear||cls");
   printf("\n#    - - -   Cadastrar aluno  - - - #");
   printf("\n# Nome completo:");
-  scanf("%[A-ZÁÉÍÓÚÂÊÔÇÀÃÕ a-záéíóúâêôçàãõ]",novo_aluno.nome);
+  scanf("%[A-ZÁÉÍÓÚÂÊÔÇÀÃÕ a-záéíóúâêôçàãõ]", novo_aluno->nome);
   printf("\n# Data de Nascimento (dd/mm/aaaa):");
-  scanf(" %[0-9/]",novo_aluno.data_nascimento);
+  scanf(" %[0-9/]", novo_aluno->data_nascimento);
   printf("# Celular(apenas números):"); 
-  scanf(" %[0-9]",novo_aluno.celular); 
+  scanf(" %[0-9]", novo_aluno->celular); 
   getchar();   
   sleep(1);    
+  free(novo_aluno); 
   return 0;
 }
-
 
 
 //Feito com base no exemplo de aluno.c do github do professor Flavios Gorgonio
@@ -391,11 +216,6 @@ char tela_pesquisar_aluno(void) {
   scanf("%[A-ZÁÉÍÓÚÂÊÔÇÀÃÕ a-záéíóúâêôçàãõ]", nome); 
   getchar();  
   sleep(1);
-  for (int nome = 0 ; nome < total_alunos; nome++) { 
-    if (strstr(alunos[nome].nome, nome) != NULL) {
-      printf("Nome do Aluno: %s\n", alunos[nome].nome);
-    }
-  }
   return 0;
 }
 
@@ -786,31 +606,44 @@ char adicionar_pagamento(void){
 
 
 
-//Feito com a ajuda do ChatGPT
 char pagamentos_atuais(void){  
+    Pagamento*pagamentos;
     char op; 
+    extern int total_pagamentos;  
+    #define MAX_PAGAMENTOS 100 
 
     do {
         system("clear||cls");
         printf("\n ---- Contas pagas ----"); 
         for(int i = 0; i < total_pagamentos; i++) {
-          printf("\n%s - Pagamento de R$ %.2f", pagamentos[i].data_pagamento, pagamentos[i].valor); 
+          printf("\n%s - Pagamento de R$ %.2f", pagamento[i].data_pagamento, pagamentos[i].valor); 
         }
 
         printf("\n1.Voltar ao menu principal");
         printf("\nQual sua opção?: "); 
-        scanf ("%s", &op);   
+        scanf ("%c", &op);   // Corrected the format specifier
         getchar(); 
 
         switch(op) { 
             case '1': 
                 despesas(); 
-                pause(); 
+                pausa();  // Corrected the function name
                 break;
             default:
                 printf("\nOpção inválida!\n");
         }
     } while(op != '1');
+
+    // Guardar na memória
+    FILE *fp = fopen("pagamentos.txt", "w");
+    if(fp == NULL) {
+        printf("Erro ao abrir o arquivo.\n");
+        return 1;
+    }
+    for(int i = 0; i < total_pagamentos; i++) {
+        fprintf(fp, "%s - Pagamento de R$ %.2f\n", pagamento[i].data_pagamento, pagamentos[i].valor);
+    }
+    fclose(fp);
 
     return op;
 }
