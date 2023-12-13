@@ -2,7 +2,7 @@
 //Feito com a ajuda do Chat bing
 #include <stdio.h>
 
-int saldo() {
+int saldo0() {
     double saldo;
 
     printf("Insira o saldo atual: ");
