@@ -12,19 +12,16 @@
 
 
  
-
 typedef struct {
   char nome[100];
   char data_nascimento[11];
   char celular[15];
 } Aluno; 
 
- 
-
-
-
-
-
+ typedef struct {  // Definir o tipo de dados 'Pagamento'
+     char data_pagamento[100];
+     float valor;
+ } Pagamento;
 
 char menu_principal(void);
 char tela_menu_principal(void); 
@@ -606,44 +603,46 @@ char adicionar_pagamento(void){
 
 
 
-char pagamentos_atuais(void){  
-    Pagamento*pagamentos;
-    char op; 
-    extern int total_pagamentos;  
-    #define MAX_PAGAMENTOS 100 
+char pagamentos_atuais(void){   
+int total_pagamentos = 0;
+Pagamento* pagamentos = malloc(total_pagamentos * sizeof(Pagamento));  // Alocar memória para 'pagamentos'
+char op; 
+#define MAX_PAGAMENTOS 100 
 
-    do {
-        system("clear||cls");
-        printf("\n ---- Contas pagas ----"); 
-        for(int i = 0; i < total_pagamentos; i++) {
-          printf("\n%s - Pagamento de R$ %.2f", pagamento[i].data_pagamento, pagamentos[i].valor); 
-        }
-
-        printf("\n1.Voltar ao menu principal");
-        printf("\nQual sua opção?: "); 
-        scanf ("%c", &op);   // Corrected the format specifier
-        getchar(); 
-
-        switch(op) { 
-            case '1': 
-                despesas(); 
-                pausa();  // Corrected the function name
-                break;
-            default:
-                printf("\nOpção inválida!\n");
-        }
-    } while(op != '1');
-
-    // Guardar na memória
-    FILE *fp = fopen("pagamentos.txt", "w");
-    if(fp == NULL) {
-        printf("Erro ao abrir o arquivo.\n");
-        return 1;
-    }
+do {
+    system("clear||cls");
+    printf("\n ---- Contas pagas ----"); 
     for(int i = 0; i < total_pagamentos; i++) {
-        fprintf(fp, "%s - Pagamento de R$ %.2f\n", pagamento[i].data_pagamento, pagamentos[i].valor);
+      printf("\n%s - Pagamento de R$ %.2f", pagamentos[i].data_pagamento, pagamentos[i].valor);
     }
-    fclose(fp);
 
-    return op;
+    printf("\n1.Voltar ao menu principal");
+    printf("\nQual sua opção?: "); 
+    scanf ("%c", &op);   // Corrigido o especificador de formato
+    getchar(); 
+
+    switch(op) { 
+        case '1': 
+            despesas(); 
+            pausa();  // Corrigido o nome da função
+            break;
+        default:
+            printf("\nOpção inválida!\n");
+    }
+} while(op != '1');
+
+// Guardar na memória
+FILE *fp = fopen("pagamentos.txt", "w");
+if(fp == NULL) {
+    printf("Erro ao abrir o arquivo.\n");
+    return 1;
+}
+for(int i = 0; i < total_pagamentos; i++) {
+    fprintf(fp, "%s - Pagamento de R$ %.2f\n", pagamentos[i].data_pagamento, pagamentos[i].valor);
+}
+fclose(fp);
+
+free(pagamentos);  // Liberar a memória alocada para 'pagamentos'
+
+return op; 
 }
