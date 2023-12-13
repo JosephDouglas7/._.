@@ -1,26 +1,27 @@
 //Feito com a ajuda do Chat bing
 #include <stdio.h>
-#include<string.h>
-// Definindo o tipo abstrato de dados Pagamento
+#include<string.h> 
+
+// Definindo o tipo abstrato de dados Pagamento 
 typedef struct {
     float valor; // Valor do pagamento
     char forma[50]; // Forma de pagamento
-} Pagamento;
+}Pagamentos;
 
 // Função para inicializar o pagamento
-void inicializaPagamento(Pagamento *pagamento, float valor, const char *forma) {
-    pagamento->valor = valor;
-    strncpy(pagamento->forma, forma, sizeof(pagamento->forma));
+void inicializapagamento1(Pagamentos *pagamento1, float valor, const char*forma) {
+    pagamento1->valor = valor;
+    strncpy(pagamento1->forma, forma, sizeof(pagamento1->forma));
 }
 
 // Função para imprimir o pagamento
-void imprimePagamento(Pagamento *pagamento) {
-    printf("Pagamento: R$ %.2f via %s\n", pagamento->valor, pagamento->forma);
+void imprimepagamento(Pagamentos *pagamento1) {
+    printf("Pagamento: R$ %.2f via %s\n", pagamento1->valor, pagamento1->forma);
 }
 
-int pagamento() {
-    Pagamento meu_pagamento;
-    inicializaPagamento(&meu_pagamento, 150.00, "Cartão de Crédito");
-    imprimePagamento(&meu_pagamento);
+int pagamento1(){
+    Pagamentos meu_pagamento;
+    inicializapagamento1(&meu_pagamento, 150.00, "Cartão de Crédito");
+    imprimepagamento(&meu_pagamento); 
     return 0;
 }
