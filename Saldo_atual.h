@@ -4,20 +4,20 @@
 // Definindo o tipo abstrato de dados Saldo
 typedef struct {
     float valor; // Valor do saldo
-} Saldo;
+} Saldo1;
 
 // Função para inicializar o saldo
-void inicializaSaldo(Saldo *saldo, float valor) {
-    saldo->valor = valor;
+void inicializaSaldo(Saldo1 *saldo1, float valor) {
+    saldo1->valor = valor;
 }
 
 // Função para imprimir o saldo
-void imprimeSaldo(Saldo *saldo) {
-    printf("Saldo Atual: R$ %.2f\n", saldo->valor);
+void imprimeSaldo(Saldo1 *saldo1) {
+    printf("Saldo Atual: R$ %.2f\n", saldo1->valor);
 }
 
 int saldo() {
-    Saldo meu_saldo;
+    Saldo1 meu_saldo;
     inicializaSaldo(&meu_saldo, 1000.00);
     imprimeSaldo(&meu_saldo);
     return 0;
