@@ -5,7 +5,7 @@
 #include<string.h> 
 #include"nome.h"
 #include"Pagamento.h" 
-#include"Pagamentos_atuais.h" 
+#include"P_a.h" 
 #include"cadastrar_aluno.h"
 #include"Saldo_atual.h" 
 #include"Data_de_nascimento.h"
