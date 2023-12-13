@@ -18,4 +18,3 @@ int atuais() {
 
     return 0;
 }
-
