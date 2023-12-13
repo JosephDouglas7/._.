@@ -1,22 +1,24 @@
 //Feito com a ajuda do Chat bing
 #include <stdio.h>
 #include<string.h>
-// Definindo o tipo abstrato de dados Pagamento
+
+// Definindo o tipo abstrato de dados Pagamento 
+int pagamento();
 typedef struct {
     float valor; // Valor do pagamento
     char forma[50]; // Forma de pagamento
-} Pagamento;
+} Pagamentos1;
 
 // Definindo o tipo abstrato de dados PagamentosAtuais
 typedef struct {
-    Pagamento pagamentos[100]; // Lista de pagamentos
+    Pagamentos1 pagamentos[100]; // Lista de pagamentos
     int quantidade; // Quantidade de pagamentos
 } PagamentosAtuais;
 
 // Função para inicializar o pagamento
-void inicializaPagamento(Pagamento *pagamento, float valor, const char *forma) {
-    pagamento->valor = valor;
-    strncpy(pagamento->forma, forma, sizeof(pagamento->forma));
+void inicializapagamento(Pagamentos1 *pagamento2, float valor, const char *forma) {
+    pagamento2->valor = valor;
+    strncpy(pagamento2->forma, forma, sizeof(pagamento2->forma));
 }
 
 // Função para inicializar os pagamentos atuais
@@ -25,9 +27,9 @@ void inicializaPagamentosAtuais(PagamentosAtuais *pagamentosAtuais) {
 }
 
 // Função para adicionar um pagamento aos pagamentos atuais
-void adicionaPagamento(PagamentosAtuais *pagamentosAtuais, Pagamento pagamento) {
+void adicionaPagamento(PagamentosAtuais *pagamentosAtuais, Pagamentos1 pagamento2) {
     if (pagamentosAtuais->quantidade < 100) {
-        pagamentosAtuais->pagamentos[pagamentosAtuais->quantidade] = pagamento;
+        pagamentosAtuais->pagamentos[pagamentosAtuais->quantidade] = pagamento2;
         pagamentosAtuais->quantidade++;
     } else {
         printf("Erro: Não é possível adicionar mais pagamentos.\n");
@@ -43,11 +45,11 @@ void imprimePagamentosAtuais(PagamentosAtuais *pagamentosAtuais) {
 }
 
 int pagamento() {
-    Pagamento pagamento1;
-    inicializaPagamento(&pagamento1, 150.00, "Cartão de Crédito");
+    Pagamentos1 pagamento1;
+    inicializapagamento(&pagamento1, 150.00, "Cartão de Crédito");
 
-    Pagamento pagamento2;
-    inicializaPagamento(&pagamento2, 200.00, "Boleto Bancário");
+    Pagamentos1 pagamento2;
+    inicializapagamento(&pagamento2, 200.00, "Boleto Bancário");
 
     PagamentosAtuais meus_pagamentos;
     inicializaPagamentosAtuais(&meus_pagamentos);
