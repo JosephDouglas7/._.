@@ -1,4 +1,5 @@
 //Feito com a ajuda do chat bing
+//Feito com a ajuda do chat bing
 //Feito com base em https://github.com/flgorgonio/linguasolta_2020.2/blob/main/aluno.c
 #include <stdio.h>
 #include <stdlib.h>
@@ -91,18 +92,12 @@ void excluirAluno(void) {
   free(matr);
 }
 
-
 char menuAluno(void) {
   char op;
 
   limpaTela();
   printf("\n");
   printf("/////////////////////////////////////////////////////////////////////////////\n");
-  printf("///                                                                       ///\n");
-  printf("///          ===================================================          ///\n");
-  printf("///          = = = = = = = = = = = = = = = = = = = = = = = = = =          ///\n");
-  printf("///          = = = =   Escola de Idiomas Língua Solta    = = = =          ///\n");
-  printf("///          = = = = = = = = = = = = = = = = = = = = = = = = = =          ///\n");  printf("/////////////////////////////////////////////////////////////////////////////\n");
   printf("///                                                                       ///\n");
   printf("///           = = = = = = = = = = = = = = = = = = = = = = = =             ///\n");
   printf("///           = = = = = = = = =  Menu Aluno = = = = = = = = =             ///\n");
@@ -128,12 +123,6 @@ char menuAluno(void) {
 void telaErroArquivoAluno(void) {
   limpaTela();
   printf("\n");
-  printf("/////////////////////////////////////////////////////////////////////////////\n");
-  printf("///                                                                       ///\n");
-  printf("///          ===================================================          ///\n");
-  printf("///          = = = = = = = = = = = = = = = = = = = = = = = = = =          ///\n");
-  printf("///          = = = =   Escola de Idiomas Língua Solta    = = = =          ///\n");
-  printf("///          = = = = = = = = = = = = = = = = = = = = = = = = = =          ///\n");
   printf("/////////////////////////////////////////////////////////////////////////////\n");
   printf("///                                                                       ///\n");
   printf("///           = = = = = = = = = = = = = = = = = = = = = = = =             ///\n");
@@ -251,10 +240,6 @@ char* telaAtualizarAluno(void) {
   printf("/////////////////////////////////////////////////////////////////////////////\n");
   printf("///                                                                       ///\n");
   printf("///          ===================================================          ///\n");
-  printf("///          = = = = = = = = = = = = = = = = = = = = = = = = = =          ///\n");
-  printf("///          = = = =   Escola de Idiomas Língua Solta    = = = =          ///\n");
-  printf("///          = = = = = = = = = = = = = = = = = = = = = = = = = =          ///\n");
-  printf("///          ===================================================          ///\n");
   printf("///                                                                       ///\n");
   printf("/////////////////////////////////////////////////////////////////////////////\n");
   printf("///                                                                       ///\n");
@@ -263,7 +248,7 @@ char* telaAtualizarAluno(void) {
   printf("///           = = = = = = = = = = = = = = = = = = = = = = = =             ///\n");
   printf("///                                                                       ///\n");
   do {
-    printf("///           Informe o nome do aluno (apenas letras): ");
+    printf("///Informe o nome do aluno (apenas letras): ");
     scanf("%[A-ZÁÉÍÓÚÂÊÔÇÀÃÕ a-záéíóúâêôçàãõ]", aln->nome);
     getchar();
   } while (!validarNome(aln->nome)); // Adicionado a validação do nome
@@ -287,13 +272,6 @@ void* atualizarAluno1(void) {
   printf("\n");
   printf("/////////////////////////////////////////////////////////////////////////////\n");
   printf("///                                                                       ///\n");
-  printf("///          ===================================================          ///\n");
-  printf("///          = = = = = = = = = = = = = = = = = = = = = = = = = =          ///\n");
-  printf("///          = = = =   Escola de Idiomas Língua Solta    = = = =          ///\n");
-  printf("///          = = = = = = = = = = = = = = = = = = = = = = = = = =          ///\n");
-  printf("///          ===================================================          ///\n");
-  printf("///                                                                       ///\n");
-  printf("/////////////////////////////////////////////////////////////////////////////\n");
   printf("///                                                                       ///\n");
   printf("///           = = = = = = = = = = = = = = = = = = = = = = = =             ///\n");
   printf("///           = = = = = = = = Atualizar Aluno = = = = = = = =             ///\n");
@@ -311,7 +289,6 @@ void* atualizarAluno1(void) {
   delay(1);
     return matr;
 }
-
 
 
 
