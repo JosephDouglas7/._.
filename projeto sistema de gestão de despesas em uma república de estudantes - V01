@@ -7,7 +7,8 @@
 #include"Pagamento.h" 
 #include"P_a.h" 
 #include"cadastrar_aluno.h"
-#include"Saldo_atual.h" 
+#include"Saldo_atual.h"  
+#include"relatorio.h"
 #include"Data_de_nascimento.h"
 
 
@@ -25,7 +26,7 @@ typedef struct {
 
 char menu_principal(void);
 char tela_menu_principal(void); 
-char moduloAluno(void);
+char moduloAluno1(void);
 char aluno(void); 
 char cadastrar_aluno(void);  
 char tela_pesquisar_aluno(void);  
@@ -49,7 +50,7 @@ char pagamentos_atuais(void);
 
 
 
-int main(void){   
+int main1(void){   
  
  menu_principal(); 
  moduloAluno(); 
@@ -144,7 +145,7 @@ char tela_menu_principal (void){
 
 
 
-char moduloAluno(void) {
+char moduloAluno1(void) {
     char opcao;
     do {
         opcao = aluno();
